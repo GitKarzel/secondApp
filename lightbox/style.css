@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    padding: 20px;
+    height: 100vh;
+    width: 100wh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    cursor: pointer;
+}
+
+#lightbox {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    width: 100wh;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#lighttbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 60%;
+    max-height: 60%;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Funkcje mogą zwracać również obiekty
+        */
+
+        function hireEmpolyee(name, surname, email, age, profession) {
+            if (name.lenght < 3) {
+                return null;
+            };
+            if (surname.lenght < 3) {
+                return null;
+            };
+            if (email.lenght < 3) {
+                return null;
+            };
+            if (age < 18) {
+                return null;
+            };
+            if (profession.lenght < 3) {
+                return null;
+            };
+
+            if (profession != "programmer" && profession != "admin" && profession != "manager") {
+                return null;
+            };
+
+            const obj = {
+                name: name,
+                surname: surname,
+                email: email,
+                age: age,
+                profession: profession,
+                company: "Example limited"
+            };
+
+            return obj;
+        };
+
+        const employee1 = hireEmpolyee("wiktoria", "bień", "asdawdas@gmail.com", 20, "manager");
+        const employee2 = hireEmpolyee("Maks", "Kwaśnik", "asdas@gmail.com", 18, "programmer");
+
+        console.log(employee1);
+        console.log(employee2);
+
+        function createTv(brand, screenSize, color) {
+            if (color != "white" && color != "black" && color != "silver") 
+                return null;
+            
+
+            const obj2 = {
+                brand: brand,
+                screenSize: screenSize,
+                color: color
+            };
+            return obj2;
+        }
+
+        const tv1 = createTv("Sony", "42", "black");
+        const tv2 = createTv("Sharp", "32", "white");
+        const tv3 = createTv("Lenovo", "50", "silver");
+        const tv4 = createTv("Lenovo", "42", "green");
+
+        console.log(tv1);
+        console.log(tv2);
+        console.log(tv3);
+        console.log(tv4);
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            operatory równości w przypadku sprawdzania obiektów tylko stwierdzaja czy dwa obiekty mająten sam adres w pamięci!. Wynika to z tego że dany obiekt, a raczej uchwyt do niego
+            może być przechowywany w wielu zmiennych czy stałych, bo to typ złożony
+        */
+
+        let a = 10;
+        let b = a; // 10 jest skopiowane do zmiennej b
+
+        b++;
+
+        console.log("a: ", a); // 10
+        console.log("b: ", b); // 11
+        
+
+        let obj = {a : 10};
+        let data = obj; // data i obj wskazują na to smao miejsce w pamięci
+                        // do data zostałą przekazana referencja do obiektu obj
+        obj.a++;
+        console.log("obj.a: ", obj.a); // 11
+        console.log("data.a: ", data.a); // 11
+
+        if (obj == data) {
+            // czy obj wskazuje na to samo miejsce w pamieci co data
+            console.log("obj i data wskazują na to samo miejsce w pamiec");
+        } else {
+            console.log("obj i data wskazują na inne miejsca w pamieci");
+        };
+
+        let info = { a: 12, b: 15};
+
+        if (obj == info) {
+            // czy obj wskazuje na to samo miejsce w pamieci co data
+            console.log("obj i info wskazują na to samo miejsce w pamiec");
+        } else {
+            console.log("obj i info wskazują na inne miejsca w pamieci");
+        };
+        
+
+        /*
+        Ścisłe operatory porównania tzn. === sprawdzają zarówno czy obie wartości są równe ale dodatkowo czy cih typ jest taki sam. Jeżeli wartości są takie same np ze względu na automatyczną konwersjęm ale typ się nie zgadza to === zwróci false
+        */
+
+        console.log( 4 == 4); // true
+        console.log( 4 === "4"); // false typ wartości się nie zgadza
+        console.log( 5 === 5); // true
+
+        /*
+            operator przecinka pozwala na zapisanie wielu wyrażeń tam gdzie zwykle wpisujemym jedno wyrażenie
+        */
+
+        let c = 7, d = 10;
+
+        console.log(d); // 10
+
+        for (let i = 0, j = 5; i < 8; i++, j--) {
+            console.log( i, j);
+        };
+        
+        /*
+            Operator logiczny and czyli && umożliwia sprawdzenie kilku warunków za jednym razem. Jeśli wszystkie warunki zwrócą true to and również na końcu zwróci true
+        */
+
+        console.log( true && true ); // true
+        console.log( true && false ); // false
+        console.log( false && false ); // false
+
+        console.log( 5 >= 5 && 1 < 4 ); // true
+        console.log( 7 == 8 && 1 < 4 ); // false
+        
+        console.log( true && true && true ); // true
+        console.log( true && false && true ); // false
+
+        /*
+            operator logiczny or czyli || zwróci prawdę jeśli chociażjeden warunek jest spełniony.
+            Zwróci false jeśli wszystkie warunki dają false
+        */
+
+        console.log(true || true); // true
+        console.log(true || false); // true
+        console.log(false || false); // true
+        console.log(false || false); // false
+
+        /*
+            Operator not czyli operator logiczny negacji, który odwraca wartość logiczną np.: !true zamieni się na false
+        */
+
+        console.log(true); // true
+        console.log(!true); // false
+        console.log(!false); // true
+        console.log(false); // false
+
+
+        let emailSent = false;
+
+        if (emailSent === false) {
+            console.log("trzeba wysłać email");
+            
+        }
+
+        //  czy email nie został wysłany
+        if (!emailSent) { // czy w emailSent nie ma wartości true
+            console.log("trzeba wysłać email");
+        }
+
+
+        if (emailSent) { // czy w emailSent został wysłany
+            console.log("email został wysłany");
+        }
+
+        /*
+            unary operators - operatory jednoargumentowe czyli przeyjmują pojedyńczy operand
+        */
+
+        let n = 8;
+        n++;
+        n--;
+
+        let date = {a: 12, b: 15, c: 17};
+        delete date.b;
+        console.log(date);
+
+        let result = "15" + 20;
+        console.log(result); // "1520"
+
+        result = +"15" + 20;
+        console.log(result); // 35
+
+        result = -"15" + 20;
+        console.log(result); // 5
+
+        /*
+            relational operators - operatory relacyjne porównująoperandy i zwracają true jeśli spełnione jest porównanie
+        */
+
+        let obj1 = { a:12, b: 14, c: 15};
+
+        console.log( "a" in obj1 ); // istnieje (true)
+        console.log( "d" in obj1 ); // nie istnieje (false)
+
+        const arr = [ 1,2,3,4,5];
+        
+        console.log( 3 in arr); // true
+        console.log( 6 in arr); // false
+
+        const date1 = new Date(2030, 12, 15);
+        console.log(date1);
+
+        if (date1 instanceof Date) console.log("Prawidłowa data");
+
+        /*
+            typeof operator - operator zwracający typ wartości w zmiennej lub stałej. Typ określony jest jako łańcuch znaków
+        */
+
+        console.log( typeof 20 ); // number
+        console.log( typeof 20,typeof "2" ); // number, string
+        console.log( typeof "56" ); // string
+        console.log( typeof true ); // boolean
+        console.log( typeof {} ); // object 
+        console.log( typeof [1,23,4] ); // "object"  
+        console.log( typeof undefined ); //  undefined 
+        console.log( typeof 123414212412123n ); // bigint   
+        console.log( typeof Symbol() ); // symbol   
+        console.log( typeof console.log); // function   
+        console.log( typeof null); //    object
+
+        let data2 = "kasia";
+        if (typeof data2 === "number") {
+            console.log("data jest liczbą");
+        } else if (typeof data2 === "bigint") {
+            console.log("data jest bigint");
+        } else if (typeof data2 === "string") {
+            console.log("data jest liczbą");
+        }
+        
+        
+        
+        
+        
+
+
+
+        
+        
+        
+
+        
+        
+
+        
+        
+
+        
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

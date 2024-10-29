@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            while - pętla ta pozwala na wielokrotne wykonanie bloku klodu jeżeli jeśli dany warunek jest spełniony
+        */
+
+        let i = 0;
+
+        while ( i <= 7) {
+            console.log( i );
+           // i = i + 1;
+            i++; // inkrementacja,        i-- - dekrementacja
+        };
+
+        const names = ["ja", "kwasek", "wiktoria", "banan"];
+
+        let b = 0;
+
+        while (b < names.length) {
+            console.log(names[b]);
+            b++
+        };
+
+        const nums = [1,2,3,4,5,6];
+
+        let c = 0;
+
+        while (c < nums.length) {
+            nums[c] = nums[c] + 10;
+            c++
+        };
+        console.log(nums);
+
+
+        let d = 10;
+        do {
+            console.log("d:", d);
+            d++
+        } while (d < 5);
+        
+        let a = -6;
+
+        while (a <= 6) {
+            console.log(a);
+            a++;
+        }
+        
+        let y = 90;
+        while (y >= 75) {
+            console.log(y);
+            y--;
+        }
+
+        const arry = [1,2,3,4,5,6,7,8,9,10,11,12];
+        let p = 0;
+        let sum = 0;
+        while (p <= arry.length) {
+            const el = arry[p];
+            if (el > 5) sum = sum + el
+            p++;
+        };
+        console.log("sum:", sum); // 63
+        
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Prymitywy przekazane są przez kopię, a obiekty przez referencję, czyli tak naprawdę wskaźnik do adresu pamięci gdzie rezyduje obiekt.
+            Obiekty zatem mogą być zmieniane po przekazaniu do funkcji.
+        */
+
+        function foo(num, obj) {
+            num = 12;
+            obj.data = "test!";
+        };
+
+        let a = 7;
+        let data = { data: "text" };
+        foo(a, data);
+
+        console.log( "a: ", a ); // 7
+        console.log( "data: ", data ); // test!
+
+            
+        function foo1(arr) {
+            for (let i = 0; i < arr.lenght; i++) {
+                arr[i] *= 3;
+            }
+        };
+        
+        let tab = [1,2,3,4,5,6,7];
+        foo1(tab);
+        console.log(tab);
+        
+        
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

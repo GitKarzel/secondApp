@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Koearcja to automatyczna konwersja typu wartośći w JavaScript gdy wymaga tego sytuacja
+        */
+
+        // konwersja jawna
+
+            let txt = String(123);
+            console.log(typeof txt); // "123" typ nie number ale string 
+
+            let num = Number("Wiktoria");
+            console.log(typeof num); // number nie string konwersja się zrobiła
+            let num1 = parseInt("Wiktoria");
+            console.log(typeof num); // number nie string konwersja się zrobiła
+            let num2 = parseFloat("123123.122222231412");
+            console.log(num2);
+            console.log(typeof num2);
+            
+
+
+            // konwersja niejawna - koercje
+
+                let data = "txt" + 123;
+                console.log(data); // "txt123", 123 zmieniło niejawnie na prymityw string
+
+                let info = "10";
+                console.log(info + 2); // "102"
+                
+
+                // "102" == 12
+                if (info + 2 == 12) {
+                    console.log("!");
+                };
+
+                let d = +"100";
+                console.log(typeof  d); // number
+                let d2 = -"100";
+                console.log(typeof  d); // number
+                console.log(d2); // -100
+                 
+                if ("false") {
+                    console.log("Wykona się"); // true
+                }
+                 
+                if (" ") console.log("Wykona się"); // true
+                if ("") console.log("Totalnie się nie Wykona się"); // false, bo nie ma nic w łańcuchów znaków
+                if (!"0") console.log("Totalnie się nie Wykona się"); // false, bo nie wykona się
+                if({}) console.log("Wykona się nie wiem jak"); // true
+                if({a: 10} == "[object Object]") console.log("Wykona się nie wiem jak"); // true
+                console.log(String({a: 10})); // wynik to =[object Object] pojebane fest
+                
+                
+                
+
+                
+                
+
+
+                
+            
+
+            
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

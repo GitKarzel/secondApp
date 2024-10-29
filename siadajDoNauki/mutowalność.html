@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            W javascript tylko obiekty i tablice tak naprawdę nadpisują swoją wartość, czyli są mutowalne. Natomaist prymityw, gdy są zmieniane to w praktyce kasowana jest poprzednia wartość i przypisana nowa, czyli nazwa zmiennej/stałej wskazuje na nowe miejsce w pamieci
+            dla prymitywów.
+        */
+
+        let str = "Hello world!";
+        str[0] = "R"                    // prymitywy jako string jest niemutowalny, nie można modyfikować
+        console.log(str[0]); // H
+
+        str = str+ "?";
+        console.log(str); // Hello world!?
+        
+        const arr = [ "H", "e", "l", "l", "o" ];
+        arr[0] = "R";                               // natomiast tablice jako obiekt jest mutowalna, można modyfikować
+        console.log(arr); // ['R', 'e', 'l', 'l', 'o']
+
+
+        // arr = {}; // Assignment to constant variable.
+
+
+
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

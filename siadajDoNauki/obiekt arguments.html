@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Obiekt arguments w funkcji posiada przekazane argumenty przy wywołaniu funkcji. Obiekt ten dostępny jest tylko w zwykłych funkcjach, nie ma go w funkcjach strzałkowych
+        */
+
+        function sumAll() {
+            let result = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                result += arguments[i]
+            }
+
+            return result;
+        };
+
+        console.log(sumAll(1,2,3)); // 6
+        console.log(sumAll(1,2,3,4,5,6,7,8,9,1,1,2,3,45,3)); // 100
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

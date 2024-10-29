@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            W javascript możemy utworzyć globalne zmienne / stałe czyli będą dostępne w całym programie.
+            Natomiast zmienne/ stałe lokalne o zasięgu bloku kodu utworzymy z let i const. Wbloku kodu możena również powołać nową zmienną / stałą o tej samej nazwie co globalna i przesłoni ją w tym bloku, będzie inną wartością.
+        */
+
+        let a = 12; // zmienna globalna
+        const b = "wiktoria"; // zmienna globalna
+
+        if (true) {
+            // zmienne lokalne które przysłanią zmiennego globalne
+            let a = 100;
+            let b = "Kwasek"
+
+            console.log(a); // 100
+            console.log(b); // "kwasek"
+        };
+
+        console.log(a); // 12
+        console.log(b); // "wiktoria"
+
+        for (let i = 0; i < 3; i++) {
+            let a = 56;
+            console.log("for ", i, a);
+        }
+
+        let name = "Wiktoria"
+        
+        if (true) {
+            let name = "Łukasz"
+            console.log(name);
+        };
+        if (true) {
+            console.log(name);
+        };
+        
+        /*
+            Zmienna var
+            zanim w es2015/es6 wprowadzono słowa kluczowe let i const 
+            w js mieliśmy tylko dostępne var do tworzenia zmienych. Taka zmienna nie ma zasięgu blokowego!
+        */
+
+        var jp = 10;
+
+        if ( true) {
+            var jp = 23;
+            console.log(jp); // wynik to 23
+
+            var jb = 100;
+        };
+        console.log(jp); // wynik to 23
+        console.log(jb); // wynik to 100
+        // wynika to że var nie ma zasięgów blokowych on nadpisuje wartości globalne
+        // ma zasięg funkcyjny 
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

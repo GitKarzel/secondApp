@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        
+        IIFE - Immediately Invoked Function expression to funkcja natychmiastowa, również anonimowa . Ogranicza dostęp do zmiennych i funkcji tylko do niej, czyli
+        nie zaśmieca globalnymi danymi naszego programu
+
+        */
+
+        (function (data) {
+            console.log(data);
+            var b = 10;
+            console.log("b: ", b);
+            
+        })("test");
+        // console.log("dostęp do b:", b); // b is not defined
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

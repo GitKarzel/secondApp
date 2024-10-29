@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Array - metody i właściwości tablicy
+        */
+
+        let arr = [1,2,3,4,5]
+        let tab = new Array(1,2,3,4, "asd", {}, []);
+        console.log(tab); //    [1, 2, 3, 4, 'asd', {…}, Array(0)]
+        
+        tab = [     // tablica dwuwymiarowa
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+        ];
+        console.log(tab);  // [Array(3), Array(3), Array(3)]
+        console.log(tab[1][1]); // tutaj aby wywołać dany element z tablicy używamy podwójnych nawiasów kwadratowych pierwszy z nich ustala w której podtablicy wybrać element a drugi
+                                // natomiast nawias kwadratowy ustala po indexie który element z podtablicy  ma zostać wybrany
+
+
+        tab = [
+            {name: "Wiktoria", favColor: "brown"},
+            {name: "Łukasz", favColor: "blue"},
+            {name: "Kwasek", favColor: "black"},
+        ];
+        console.log(tab);
+        
+        tab[2] = {name: "Kałkaz", favColor: "wiking"};          // są mutowalne
+        console.log(tab);
+        console.log(tab.length); // 3
+        console.log(tab[ tab.length - 1 ]); // {name: 'Kałkaz', favColor: 'wiking'}
+
+        tab = [1,2,3,4,5];  
+        tab.push(6);            // metoda .push dodaje nam wybrane elementy do tablicy
+        tab.push({
+            name: "Wiktoria", favColor: "brown"
+        });
+        console.log(tab);   //  [1, 2, 3, 4, 5, 6, 7]
+
+        let element = tab.pop(); // metoda pop pobiera nam ostatni element w tablicy
+        console.log(element); //{name: 'Wiktoria', favColor: 'brown'} 
+        console.log(tab);  //  [1, 2, 3, 4, 5, 6] natomiast tutaj w tablicy metoda pop usunie elementy który pobraliśmy 
+        
+
+        tab = tab.reverse(); // metoda ta odwraca nam wszystkie wartości w tablicy i zaczyna od tyłu
+        console.log(tab); // [6, 5, 4, 3, 2, 1]
+
+        tab = tab.concat([10,11,12,13]); // metoda .concat to metoda która wrzuca nam nową tablice do naszej starej tablicy
+        console.log(tab); // [6, 5, 4, 3, 2, 1, 10, 11, 12, 13]
+
+        let str = tab.join("-|-");
+        console.log(str); // 6-|-5-|-4-|-3-|-2-|-1-|-10-|-11-|-12-|-13
+
+
+        tab = new Array(7); // tworzy nam obiekt tablicy który ma 7 pustych elementów
+        console.log(tab); // [empty × 7]
+
+        tab = new Array(5).fill(7); // tworzy nam obiekt tablicy z 5 elementami a za pomocą metody .fill uzupełnia te 5 elementów liczbą 7
+        console.log(tab);       // [7, 7, 7, 7, 7]
+
+
+        tab = ["Wiktoria", "Łukasz", "Maks"];
+        
+        for (let i = 0; i < tab.length; i++) {
+            const element = tab[i];
+            console.log(element);
+        }
+
+        for (let el of tab) {
+            console.log(el);        // krótszy zapis działa tak samo jak zapis wyżej
+        }
+
+        tab.forEach(function (item, index, arr) {
+            console.log(item, index);       // Metoda javascript foreach (), znana również jako javascript for-each, to funkcja wbudowana w język JavaScript, która pozwala na iterowanie przez elementy tablicy. 
+                                            // Foreach () method wykonuje określoną funkcję dla każdego elementu tablicy
+            
+        });
+
+        tab = ["Wiktoria", "Łukasz", "Maks", "Adam", "Karol", "Daniel"];
+        
+        let pos = tab.indexOf("Witkoria")
+        console.log(pos); // 3
+        let pos1 = tab.indexOf("jagódki")
+        console.log(pos); // -1
+
+        console.log(tab.includes("Salamalejko")); // false      // metoda ta .includes sprawdza czy dany element występuje w tablicy jeśli go nie ma daje nam false natomiast jeśli jest daje nam true
+        console.log(tab.includes("Wiktoria")); // true
+
+
+        tab = ["Wiktoria", "Łukasz", "Maks", "Adam", "Karol", "Daniel"];
+        tab = tab.sort(); // metoda ta pozwala nam posortować alfabetycznie naszą tablice
+        console.log(tab);   // ['Adam', 'Daniel', 'Karol', 'Maks', 'Wiktoria', 'Łukasz']
+
+        tab = tab.reverse(); // alfabetycznie ale ułożone od tyłu
+        console.log(tab); // ['Łukasz', 'Wiktoria', 'Maks', 'Karol', 'Daniel', 'Adam']
+        
+        tab = [4,2,6,8,1,9,3, 10, 20, 7];
+        tab = tab.sort(); 
+        console.log(tab);       // [1, 10, 2, 20, 3, 4, 6, 7, 8, 9]
+
+        tab = tab.sort(function(a, b){
+            // zwrócona ujemna wartość z funkcji to a mniejsze od b
+            // 0 jeśli wartości są równe
+            // dodatnie b większe od a
+            return a - b; // a = 5, b = 10;
+        });
+
+        console.log(tab); // [1, 2, 3, 4, 6, 7, 8, 9, 10, 20]
+
+        tab = [1, 2, 3, 4, 6, 7, 8, 9, 10, 20];
+        tab.unshift(-3, 21, -1, 0); // metoda ta uzupełnia naszą tablicę ale wszystkie elementy daje na początku tablicy
+        console.log(tab); // [-3, -2, -1, 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 20]
+
+        let firtEl = tab.shift(); // metoda ta pobiera nam pierwszy index z tablicy, przy czym zmodyfikuje naszą tablice i usunie ten element z starej tablocy
+        console.log(firtEl); // -3
+        console.log(tab); // [21, -1, 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 20]
+
+        /*
+            [].splice( start, deleteCount, item1, item2, ..., )
+            Metoda splice pozwala na skasowanie i dodanie za jednym razem kilku elementów za jednym razem. 
+                Start określa od którego numeru indeksu zrobić zmianę,
+            deleteCount - ile skasować elementów, a reszta parametrów to nowe elementy do dodania. Funkcja ta modyfikuje tablicę i zwraca skasowane elementy
+        */
+
+        let arr1 = ["a", "b", "c", "d", "e", "f", "l"] ;
+        let res = arr1.splice(2, 3, "TEst1", "TEST2");
+        console.log(res); // ['c', 'd', 'e'] 
+        console.log(arr1); // ['a', 'b', 'TEst1', 'TEST2', 'f', 'l']
+
+        arr1.splice(1, 0, "Wiki",2,3,4,5,6,)
+        console.log(arr1); // ['a', 'Wiki', 2, 3, 4, 5, 6, 'b', 'TEst1', 'TEST2', 'f', 'l']
+
+
+
+        arr = ["Wiktoria", "Lukasz", "Maks", "Oliwier", "Banan", "Mikołaj"];
+
+        let newArr = arr.map(function (value, index, arr) {
+            return value + "!" + index + "!" + arr.length;
+        });
+        console.log(newArr); // ['Wiktoria!0!6', 'Lukasz!1!6', 'Maks!2!6', 'Oliwier!3!6', 'Banan!4!6', 'Mikołaj!5!6']
+
+
+        newArr = arr.map((value) => value + "!");
+        console.log(newArr); // ['Wiktoria!', 'Lukasz!', 'Maks!', 'Oliwier!', 'Banan!', 'Mikołaj!']
+
+
+        newArr = [1,2,3,4,5,6,7,8].map(Math.sqrt);
+        console.log(newArr);
+
+        let filtered = arr.filter(function (v) {
+            return v.length > 5
+        });
+
+        console.log(filtered); // ['Wiktoria', 'Lukasz', 'Oliwier', 'Mikołaj']
+
+        let reduced = [1,2,3,4,5,6,7,8,9].reduce((acc, currValue, index, arr) => acc + currValue );
+        console.log(reduced); // 45
+
+
+        const arr2 = [1,2,3,4,5,6, 1];
+        console.log( arr2.every( v => v > 0 ) ); // każdy obiekt w tablicy w tym przypadku musi być większy od 0 wtedy uzyskamy true jeśli będzię mniejszy od 0 to wtedy dostajemy false
+        console.log( arr2.every( v => v > 3 ) ); // false
+        
+        
+        
+        
+        
+        
+
+
+
+        
+        
+        
+
+        
+        
+
+
+        
+
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

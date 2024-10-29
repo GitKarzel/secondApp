@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Spread operator z EcmaScript2015 rozbija tablica/obiekt na pojedyńcze wartości
+        */
+
+        function test(a, b, c, d) {
+            console.log(a, b, c, d); // 1 2 3 4
+        }
+        const arr = [1,2,3,4];
+
+        test(...arr); // spread operator
+
+
+        let data = {
+            name: "wiktoria",
+            city: "wawa",
+            favColor: "red"
+        };
+
+        let obj = {
+            ...data,
+            email: "example@gmail.com",
+            coutry: "Poland",
+            city: "Kraków"
+        };
+
+        console.log(obj);
+
+
+        // function  createComputer() {
+        //     let object = {
+        //         cpu: "AMD",
+        //         gpu: "nvidia",
+        //         ram: "32gb",
+        //         dysk: "1tb"
+        //     }
+        //     return object;
+        // };
+        // console.log(createComputer);
+
+        // function createLaptop() {
+        //     let object2 = {
+        //     ...createComputer(object),
+        //     type: "laptop",
+        //     weight: 2.5
+        //     }
+        //     return object2;
+        // };
+        // console.log(createLaptop);
+
+
+        function createComputer(cpu, gpu, ram, disk) {
+            return {
+                cpu: cpu,
+                gpu: gpu,
+                ram: ram,
+                disk: disk
+            };
+        }
+
+        let computer =  createComputer("amd", "nvidia", "32gb", "1tb");
+        console.log(computer);
+        
+
+        function createLaptop(obj) {
+            return {
+                ...obj,
+                type: "laptop",
+                weight: "2.5"
+            };
+        }
+
+        let laptop = createLaptop(computer)
+        console.log(laptop);
+        
+
+        
+        
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

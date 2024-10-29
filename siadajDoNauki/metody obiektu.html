@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Metody to wewnętrzne funkcje obiektu, które zwykle operują na danych tego obiektu. Metoda odwołuje się do danych swojego obiektu za pomocą this.nazwaZmiennej
+        */
+       let phone = {
+        brand: "realme",
+        model: "7 pro",
+        manufactureDate: 2021,
+        connect: function (contact) {
+            console.log("Połączenie z: ", contact);
+        },
+        getInfo: function () {
+            console.log( this.brand, this.model, this.manufactureDate );
+        }
+       };
+
+       phone.connect("Wiktoria");
+       phone.getInfo();
+
+
+        const tvFactory = {
+            name: "Factory",
+            city: "Krk",
+            employees: [],
+            brand: "Shark",
+            addEmployee: function (name, surname) {
+                const obj = {
+                    name: name,
+                    surname: surname,
+                    email: `${name.toLowerCase()}.${surname.toLowerCase()}@example.com`
+                };
+
+                this.employees[ this.employees.length ] = obj
+            },
+            showEmployees: function () {
+                console.log(this.name, "employees: ");
+
+                for (let i = 0; i < this.employees.length; i++) {
+                    const element = this.employees[i];
+                    console.log(element.name, element.surname, element.email);
+                }
+            },
+            makeTv: function (model, color) {
+                return {
+                    id: `${this.brand}-${model}-${color}-TV`,
+                    brand: this.brand,
+                    model: model,
+                    color: color
+                }
+            }
+        };
+
+        tvFactory.addEmployee("wiktoria", "Bień");
+        tvFactory.addEmployee("Łukasz", "Puzio");
+        console.log(tvFactory.employees);
+
+        tvFactory.showEmployees();
+
+        let tv1 = tvFactory.makeTv("Pajrot", "white");
+        console.log(tv1);
+        
+        let tv2 = tvFactory.makeTv("BetterLook", "black");
+        console.log(tv2);
+
+        tvFactory.name = "Factory Ltd.";
+        tvFactory["name"] = "TV Factory ltd.";
+        console.log(tvFactory);
+        
+        const factoryName = "name"
+        tvFactory[factoryName] = "sharp TV factory ltd.";
+        console.log(tvFactory);
+        
+
+        
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

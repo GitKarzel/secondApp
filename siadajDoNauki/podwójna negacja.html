@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            negacja wymusza konwersję na boolean i odwraca znak, ale podwójna negacja w praktyce konwertuje "prawdziwe" wartości na true a "falsy" na false
+        */
+
+        console.log( !1 ); // false bo ! wymusza konwersję na boolean
+        console.log( !-1 ); // false, wartość różna od zera zamieniana jest na true
+
+        console.log(!!1); // true
+        console.log(!!-1); // true
+        console.log(!!"s"); // true
+        console.log(!!0); // false
+        console.log(!0); // true
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

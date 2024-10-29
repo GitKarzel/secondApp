@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            string - prymityw czyli typ prosty wartości, którą możemy zapisać w zmiennej lub stałej. To w 
+            praktyce łańcuch znaków zwany również: literałem znaków lub literałem łańcuchowym. Tworzymy go za
+            pomocą cudzyslowia lub apostrofów
+        */
+
+        let str = "Hello";
+
+        let str2 = str + " and hello again!"
+        console.log(str2);
+        console.log(str2.length);
+        console.log(str2[0]); // H
+        console.log(str2[str2.length - 1]); // !
+
+        let zmienna = "Gdyby kózka nie skakała, toby nóżki nie złamała";
+        console.log(zmienna);
+        console.log(zmienna + " 🤠🤠");
+        console.log(zmienna[0]);
+        console.log(zmienna[zmienna.length - 1]);
+        console.log(zmienna.length);
+
+        /*
+            template literal - zwany również literałem szablonu, to również łańcuch znaków utworzony za pomocą
+            bactików czyli znaku ` dostepnęgo pod klawiszem esc. Zaletą ich jest możliwość
+            pisania tekstu w wielu liniach oraz osadzania wartości jako ${nazwaZmiennej}
+        */
+
+        let a = `raz
+         dwa
+        trzy`;
+
+        console.log(a);
+
+        let animal = "psa"
+        let txt = `Ja mam kota, 
+        natomiast Wiktoria ma ${animal}`;
+        console.log(txt);
+
+        let city = "w Madrycie";
+        let txt2 = `Życie jak ${city}!`;
+        console.log(txt2);
+
+
+    </script>
+</head>
+<body>
+    .
+</body>
+</html>

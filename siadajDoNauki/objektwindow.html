@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Objekt window to ogólnodostepny obiekt w przeglądarce w której działa js udostepnia nam wiele przydatnych informacji o aktualnej karcie/okna przegladarki.
+        */
+
+            console.log(window.innerWidth);
+            console.log(window.innerHeight);
+
+
+            console.log(innerWidth);
+            console.log(innerHeight);
+
+
+            setTimeout(function () {
+                console.log("After timeout");
+            }, 500);
+
+            let i = 0;
+            let intervalId = setInterval(() => {
+                if (i <= 2) {
+                    console.log(i);
+                    i++
+                }
+            }, 800);
+
+            // alert("hejka");
+
+            // let userInpur = prompt("Podaj swoje imię: ");
+            // console.log("twoje imię to: ", userInpur);
+
+            // let floatNum = parseFloat(userinput);   ---> zmienia typ znaków
+
+
+
+            /*
+                Event handlers to zmienne pod które możemy podpiąc nasze funckje i będą wywołane przez np. przeglądarkę gdy zajdzie jakieś zdarzenie. Przykładowo zdarzenie load będzie wywołane, gdy wszystkie elementy witryny zostaną 
+                załadowane jak kod html, css, obrazki itd. Aby podpiąć się pod zdarzenie load wystarczy użyć window.onload // onload do którego przypiszemy nasza funkcję
+            */
+
+            onload = function () {
+                // console.log("Website donwload and parsed!");
+                
+            };
+
+            onresize = function () {
+                // console.log("Aktualne wymiary okna: ", innerWidth, innerHeight);
+                
+            };
+
+            addEventListener("load", function () {
+                console.log("Website donwload and parsed!");
+            });
+
+
+            addEventListener("resize", function () {
+                console.log( "Aktualne wymiary okna: ", innerWidth, innerHeight);
+            });
+            
+
+
+
+            
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

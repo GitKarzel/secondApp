@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Prymitywy jak number czy string mają swoje odpowiedniki w postaci obiektów. Mozemy wykorzystywać ich konstruktory tzw. wrappery aby mieć możliwość użycia przydatnych
+            metod. Dodatkowo javascript robi ten proces automatycznie, gdy wywołamy metodę to prymityw jest konwertowany na obiekt i po wszystkim wraca do swojej prymitywnej postaci.
+        */
+
+        let txt = "TEST"; // string - prymityw 
+
+        let str = new String(txt); // String - objekt / wrapper
+        str = str.toLocaleLowerCase();
+        console.log(str);   // "test"
+
+        str = txt.toLowerCase();
+        console.log(str); // "test"
+
+
+        let num = 123.2379;             // dłużysz i ten sam zapis co poniżej to samo robią
+        numer = new Number(num);
+        numer = numer.toFixed(2);  // toFixed - to metoda która umożliwia nam ustawienie ilość cyfr po przecinku ustawiamy ją w nawiasach toFixed();
+        console.log(numer);
+
+        
+        numer = num.toFixed(3);     // szybszy i krótszy zapis
+        console.log(numer);
+        
+        
+        let num2 = new Number(123.444444);      // Tworzenie nowego obiektu z prymitywa number
+        console.log(num2.toFixed(3));
+        
+        
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

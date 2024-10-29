@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            function expression - wyrażenie funkcyjne to funkcja anonimowa przypisana do zmiennej lub stałej
+        */
+
+        let foo = function (a, b) {
+            return a + b;
+        };
+
+        console.log( foo(5, 10) ); // 15
+
+        foo = function (a, b) {
+            return a - b;
+        };
+
+        console.log( foo(10, 5) ); // 5
+
+
+        let multiply = function(a, b) {
+            return a * b;
+        };
+        console.log(multiply(3, 6)); // 18
+
+        let test = multiply(10, 25);
+        console.log(test); // 250
+        
+        
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

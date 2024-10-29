@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            return pozwala na wyjście z funkcji oraz zwrócenie z niej wartości
+        */
+
+        function substract(a, b) {
+            let result = a -b;
+            return result;
+        };
+
+        let data = substract(100, 45);
+        console.log(data); // 55
+
+        function foo(name) {
+            if (name == "wiktoria") {
+                return; // przerywamy działanie funkcji
+            } else {
+                console.log("imię to: ", name);
+            }
+
+            return null;
+         };
+
+         console.log(foo("Kwasek"));
+         console.log(foo("wiktoria"));
+
+         function averageValue(a,b,c,d) {
+            let sum = ((a + b + c + d) / 4);
+            return sum;
+            // inna opcja zapisu to
+            // return (a + b + c + d) / 4;
+            
+         };
+
+         console.log(averageValue(2,4,8,10));
+         console.log(averageValue(30,60,90,120));
+         console.log(averageValue(5,10,15,20));
+         
+         
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

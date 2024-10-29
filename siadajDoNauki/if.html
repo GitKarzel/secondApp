@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Instrukcja warunkowa if pozwala na dodanie logiki w naszych programach. Sprawdza czy dany warunek jest spełniony, czy daje wartośc true i następnie wykonywany jest blok kodu znajdujący się w nawiasach klamrowych po instrukcji if.
+        */
+
+        if (true) {
+            console.log("Wykona się 1!");
+            console.log("Wykona się 2!");
+        };
+        if (false) {
+            console.log(" nie Wykona się 1!");
+            console.log("nie Wykona się 2!");
+        };
+        if (10 > 2) {
+            console.log("10 większe od 2");
+        };
+        let result = ((12 + 8) * 2) < 100; // true
+        if (result) {
+            console.log("wynik jest mniejszy niż 100");
+        };
+
+        let a = 14;
+        let b = 7;
+        if (a > b) {
+            console.log( a + " jest większe od " + b );
+        };
+
+        if (a == 14) {
+            console.log( a + " jest równe 14");
+        };
+        if (a != 15) {
+            console.log( a + " nie jest równe 15");
+        };
+
+        // ZADANIE
+
+        data = 4;
+
+        if (12 > 7) {
+            console.log("12 jest większe od 7");
+        };
+
+        if (60 < 90)  console.log("60 jest mniejsze od 90"); // tak też mozna to zapisać
+        
+        if (5 > 10) {
+            console.log(" nie jest większe");
+        };
+
+        if (data == 3) {
+            console.log("data nie jest równe 3");
+        };
+        /*
+            if else - bloki kodu dla spełnionego oraz nie spełnionego warunku
+        */
+
+        let num = 8;
+
+        if (num == 8) {
+            console.log("num to 8");
+        } else {
+            console.log("num to nie 8");
+        };
+
+        /*
+            if else if - pozwala za jednym razem sprawdzenie wielu możliwych warunków. Jeżeli dany if lub if else nie jest spełniony to sprawdzany jest kolejny if else. Natomiast gdy warunek jest spełniony to kolejne już nie są sprawdzane
+        */
+
+        let age = 30;
+
+        if (age == 18) {
+            console.log("osoba jest już dorosla");
+        } else if (age == 19) {
+            console.log("wiek to 19")
+        } else if (age < 18) {
+            console.log("osoba ma mniej niż 18 lat");
+        } else if (age == 20) {
+            console.log("Osoba ma ponad 20 lat");
+        } else {
+            console.log("Wiek to jest dokładnie: " + age);
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

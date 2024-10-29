@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Objekty mogą być utworzone również dzięki konstruktorowi czyli specjalniej funkcji, pewnego szablonu na bazie którego powstanie obiekt. Stworzenie nowej instancji
+            obiektu, czyli nowego egzemplarza będzie wymagało wykorzystanie słowa kluczowego new. Nazwy konstruktorów przyjeło się pisać z dużej litery dzięki czemu
+            wszyscy programiście więdzą że to konstruktor
+        */
+
+        let date = new Date();
+        console.log(date);
+
+        let pro = new Number();
+        console.log(pro);
+        
+        // funkcja konstruująca
+        function Car(brand, name, color) {
+            this.brand = brand;
+            this.name = name;
+            this.color = color;
+            this.year = 2005;
+            this.printData = function(){
+                console.log(this.brand, this.name, this.color, this.year);
+            }
+        };
+
+        let car1 = new Car('Toyota', 'Corolla', 'czerwony');
+        let car2 = new Car('Renault', 'Megane', 'black');
+        console.log(car1);
+        car1.printData();
+        console.log(car2);
+        car2.printData();
+
+
+        
+        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

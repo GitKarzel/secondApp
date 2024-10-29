@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Zakres u większości języków programowania definiowany jest przez blok kodu, ale tak w javaScript nie jest. W js istnieje zakres globalny oraz lokalny. Zakres tzw. scope to widocznośc zmiennych dla poszczególnych części programu.
+
+            Zakres globalny istnieje przez całe życie skruptu, raz zadeklarowana zmienna globalna już tam pozostanie, chyba że użyjemy na niej delete. Globalna zmienna może być używana wewnątrz oraz poza funkcją,
+            w praktyce gdziekolwiek w bieżącym dokumencie. W przeglądarce window jest obiektem globalnym.
+
+            Zakres lokalny istnieje wewnątrz funkcji w której zmienna została zadeklarowana, również argumenty funckji.
+            Domyslnie js nie ma zakresu blokowego z var co powoduje pewne problemy.
+        */
+
+        let g1 = 12;  // let i const ma zakres blokowy dlatego nie można ponownie zadeklarowac takich samych stałych lub zmiennych
+
+
+        var g2 = 20;        // var ma zasięg/zakres funkcyjny
+        var g2 = 70;        // ponowna dekalracja tej samej zmiennej to zła praktyka ale nie będzię to błąd lecz lepiej tak nie robic
+        var g2 = 99;
+        console.log(g2); // 99
+
+
+        if (1 == 1) {
+            let g1 = 5; // 5
+            var g2 = 88; // nadpiszemy globalne g2
+        }
+
+        console.log(g2); // 88 
+        console.log(g1); // 12
+        
+
+        /*
+            Scope w funkcji - wszystko zadeklarowane wewnątrz funkcji z var, let i const ma zakreś lokalny, widoczne jest tylko w funkcji. Z poziomu funkcji mamy dostęp do zmiennych globalnych, możemy też te globalne zmienne przesłonić
+        */
+
+        let a = 12
+        let i = function () {
+            let  a = 0; // przysłoniło 12 i pokaże 0
+
+
+            num = 99; // zła praktyka, utworzenie globalnej zmiennej
+        };
+
+        console.log(a); // nie zmieniło się nic i nadal jest 12 
+
+        console.log(num); // 99 tutaj jeśli tworzymy zmienną w funkcji to ona będzie widoczna poza funckją taki niuansik
+
+        // aby uchronić się przed tym używamy czegoś takiego:
+
+        function bar() {
+            "use strict"
+
+            data4 = 101; // references error
+        };
+
+        // bar() ---> error po wywołaniu
+        
+        
+
+        // Nie ważne jest to czy to jest let czy const nadal to będzie przysłonienie, nie zmieni to zmiennej lub stałej
+        
+        
+
+
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

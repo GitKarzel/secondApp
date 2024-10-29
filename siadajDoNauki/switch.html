@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            switch - pozwala na proste równanie czy dana zmienna psoaida jedną z wartości. Gdy dany case jest spełniony następuje wyjście z konstrukcji switch
+        */
+
+        let num = 22;
+
+        switch (num) {
+            case 5:
+                console.log("nie jest");
+            break;
+            case 12:
+                console.log("nie jest");
+            break;
+            case 22:
+                console.log("num jest równe 22");
+            break;
+            default:
+                console.log("do niczego nie pasuje");
+            break;
+        }
+
+        let n = 2
+
+        switch (n) {
+            case 2:
+            case 4:
+            case 6:
+            case 8:
+            case 10:
+                console.log( n + "jest parzyste");
+                break;
+            default:
+                console.log( n + "nie parzysta");
+                break;
+        }
+
+        let temp = 0;
+
+        switch (temp) {
+            case -10:
+            case -5:
+                console.log(temp + " zimno");
+                break;
+            case 0:
+                console.log(temp + " zamarzanie wody");
+            break;
+            case 5:
+                console.log(temp + " przedwiośnie");
+            break;
+            case 10:
+                console.log(temp + " wiosna");
+            break;
+            case 20:
+                console.log( temp + " lato");
+            break;
+            default:
+                console.log(temp + " temperatura poza skalą");
+                
+                break;
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

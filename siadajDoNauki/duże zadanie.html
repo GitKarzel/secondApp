@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // function createUser(name, contact) {
+        //     let user = name;
+
+        //     if (typeof contact == "string") {
+        //         console.log("imię: " + user + " Adres email: " + contact);
+        //     } else if (typeof contact == "number") {
+        //         console.log("imię: " + user + " Numer telefonu: " + contact);
+        //     }
+        // }
+
+        // console.log(createUser(" Wiktoria", 12312));
+        // console.log(createUser(" Wiktoria", "wiktoria@gmail.com"));
+
+        function createUser(name, contact) {
+            let user = {
+                name: name
+            };
+               
+
+            if (typeof contact == "string") {
+                user.email = contact
+            } else if (typeof contact == "number") {
+                user.telephone = contact
+            };
+
+
+            if (user.email) {
+                console.log("imię: " + user.name + " Adres email: " + user.email);
+            } else if (user.telephone) {
+                console.log("imię: " + user.name + " Numer telefonu: " + user.telephone);
+            }
+            return user;
+        };
+
+        console.log(createUser("Wiktoria", 1231));
+        console.log(createUser("Wiktoria", 1231));
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

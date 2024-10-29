@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let obj = { a:1, b:2, str: "text", arr: [1,2,3], info: {o: 1}};
+        let data = {test: 333};
+
+        let result = Object.assign(data, obj);  // dzięki .assign mamy możliwość wrzucenia elementów z jednej tablicy do drugiej, w tym przypadku 1 argument to tablica do której chcemy dodać elementy
+        console.log(result);                    // natomiast drugi argument to tablica z której pobieramy elementy ważne jest to aby wywołać to musimy użyć ||  Object.assign()  ||
+
+        console.log(result === data); // true
+        console.log(obj === data); // false
+        console.log(obj.arr === data.arr); // true
+        console.log(obj.info === data.info); // true
+
+        let o1 = {a: 1, b: 2};
+        let o2 = {c: 10};
+        let o3 = {txt: "asdasd"};
+        
+        let obj1 = Object.assign({}, o1, o2, o3); // Połączyliśmy 3 Object
+        console.log(obj1); // {a: 1, b: 2, c: 10, txt: 'asdasd'}
+
+        obj = {
+            num :123,
+            str: "text",
+            printData: function () {
+                console.log("Hello!");
+            },
+            arr: [1,2,3,4,5],
+            data: {
+                a: 1,
+                b: 2
+            }
+        };
+        
+        const objKeys = Object.keys(obj);
+        console.log(objKeys); // ['num', 'str', 'printData', 'arr', 'data']
+
+        for (const key of objKeys) {
+            console.log("Key: ", key, "value: ", obj[key]);
+        };
+
+        const objValues = Object.values(obj);
+        console.log(objValues); // [123, 'text', ƒ, Array(5), {…}]0: 1231: "text"2: ƒ ()3: (5) [1, 2, 3, 4, 5]4: {a: 1, b: 2}length: 5[[Prototype]]: Array(0)
+
+        const objEntries = Object.entries(obj);
+        console.log(objEntries);
+
+        for (const entries of objEntries) {
+            console.log(entries);
+        }
+
+        
+        
+        
+        
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let a = 10;
+
+        a += 2;
+        console.log(a); // 12
+
+        a -= 6 ;
+        console.log(a); // 6
+
+        a *= 3; // 18
+        a /= 9 ;// 2
+
+        a **= 3 // 8, do potęgi
+
+        /*
+            Operator modulo pozwala na uzyskanie reszty z dzielenia
+        */
+
+        console.log( 10 % 4 ); // 2
+        console.log( 43 % 3 ); // 1
+        console.log( 43 % 43 ); // 0
+
+        console.log( 10 % 2 ); // 0 bo parzysta
+
+
+        const arr = [2, 4, -6, 8, 93, 13, 27, 64, 234];
+
+        for (let i = 0; i < arr.length; i++) {
+            const element = arr[i];
+             
+            if ( (element % 2) == 0) {
+                console.log(element + " liczba parzysta");
+                
+            } else {
+                console.log(element + " liczba nie parzysta");
+            }
+        };
+        
+        const table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+        let num = 0;
+
+
+        for (let i = 0; i < table.length; i++) {
+            const element = table[i];
+            if ( (element % 2) == 0 ) {
+                num += element;
+            }
+        };
+        console.log("sum: " + num);
+        
+        
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

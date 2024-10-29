@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            boolean - prymityw typ wartości zwany też wartością logiczną czyli mają tylko dwie możliwe wartości:
+            true lub false
+        */
+
+        let msgSent = false; // nie została wysłana
+        msgSent = true; // wiadomośc została wysłana
+
+        let b1 = 14 > 7;
+        console.log(b1); // true
+
+        let b2 = 11 > 15;
+        console.log(b1); // false
+
+        let b3 = 10 == 10;
+        console.log(b3); // true
+
+        let b4 = 10 != 21
+        console.log(b4); // true
+
+        let b5 = 5 != 5;
+        console.log(b5); // false
+
+        /*
+            bigint - prymityw typ wartości, bardzo rzadko używany aby zapisać liczbę całkowitą większą niż9007199254740991, wymaga dodanie litery n na końcu liczby
+        */
+
+        let a1 = 123124125415231233125123141n;
+        let result = a1 + 123411n;
+        console.log(result); 
+
+        /*
+            prymityw undefined - będący unikalną wartością, to również typ wartości w JS. Wartość undefined jest automatycznie przypisana do każdej zmiennej jeżeli nie damy dla niej wartości początkowej
+        */
+        
+        let data; // undefined
+        console.log(data);
+
+        data = 1;
+
+        // let txt = undefined; // zła praktyka!
+
+        // data = undefined; // zła praktyka
+        
+        /*
+            null- to słowo kluczowe oznaczające pustą wartość używane przez programistów aby intencjonalnie wskazać że dana zmienna nie ma już przypisanej wartości
+        */
+
+        let currentTask = "Task #1";
+
+        currentTask = null; // ma pustą wartość
+
+        currentTask = "Task #2";
+
+        /*
+            primitives - to prymitywne typy wartości które można przypisać do zmiennych czy stałych
+        */
+
+        let txt = "Wiktoria";
+        let num = 123;
+        num = 123.23;
+        let bool = true;
+        let bigInt = 12412312412412412312412412n;
+        let undef; // undefined
+        txt = null; 
+        let uniqueSymbol = Symbol(); // symbol
+        
+
+        
+
+
+        
+    </script>
+</head>
+<body>
+    .
+</body>
+</html>

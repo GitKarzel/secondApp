@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Funkcja strzałkowa czyli arrow function to skrócony zapis funkcji dodany od wersji ecmascript2015/2016 js
+        */
+
+        function test(a, b) {
+            return a * b;
+        };
+
+        const multiply = (a, b) => a * b;
+
+        console.log(test(3,10)); // 30
+        console.log(multiply(5,5)); // 25
+
+        // => - fat arrow
+        const substract = (a, b) => {
+            return a - b;
+        };
+
+        console.log(substract(20, 4)); // 16
+
+        /*
+            Funkcja strzałkowa nie ma dostępu do obiektu arguments, ale możemy użyć operator rest do pobrania wszystkich przekazanych argumentów
+        */
+
+        // let show = () => console.log(arguments);
+        // show(1,2,3,4,5); // ReferenceError: arguments is not defined
+
+        let show = (...params) => console.log(params);
+
+        show(1,2,3,4,5); // [1, 2, 3, 4, 5]
+
+
+        let getObj = (data) => {
+            return {
+                ...data,
+                info: "Some object"
+            };
+        }
+
+        const obj = {
+            a: 1,
+            b: 2
+        }
+        console.log( getObj(obj) ); // {a: 1, b: 2, info: 'Some object'}
+
+
+        let getObj2 = (data) => ({...data, info: "Another OBJ"});
+        console.log(getObj2(obj));
+        
+        
+
+        
+        
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

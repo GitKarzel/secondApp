@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function Magazine(title) {
+            this.title = title;
+            this.adverts = [];
+
+            this.addAdverts = function (name, page) {
+                this.adverts.push({name: name, page: page});
+            }
+
+            this.printAdverts = function () {
+                for (let i = 0; i < this.adverts.length; i++) {
+                    const a = this.adverts[i];
+                    console.log("advert: ", a.name, a.page);
+                }
+            }
+        }
+
+
+        const magazine = new Magazine("it World");
+        console.log(magazine);
+
+        magazine.addAdverts("computer", 3);
+        magazine.addAdverts("playstation", 5);
+        magazine.addAdverts("laptop", 10);
+        magazine.printAdverts();
+        
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+
+
+
+
+
+</body>
+</html>

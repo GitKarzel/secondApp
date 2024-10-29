@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            String - metody i właściwości
+        */
+
+        let str = "hello world";
+        console.log(str);       // hello world
+        
+
+        str = str.toUpperCase();
+        console.log(str);   //HELLO WORLD
+
+        str = str.toLowerCase();
+        console.log(str);  // hello world
+
+        console.log(str.charAt(0)); // h  ==> wybieramy index za pomocą tej metody
+        console.log(str.charAt(0).toUpperCase()); // h  ==> pobieramy wybrany index i dodatkowo ustalamy tą litere na dużą
+        console.log(str.charCodeAt(0)); // 104 ===> unicode table code
+        
+        str = "a b c d e f g";
+        console.log(str.split(" ")); //  ['a', 'b', 'c', 'd', 'e', 'f', 'g'] // Metoda która uzyskuje tablice tych elementów
+        console.log(str.split("kam")); //   ['a b c d e f g']
+
+        const data = "1 1 2 3 4".split(" ");
+        console.log(data); // ['1', '1', '2', '3', '4']
+
+        let result = data.join(" | ") // metoda join umożlwia nam wybranie czym chcemy oddzielić nasz string
+        console.log(result); // 1 | 1 | 2 | 3 | 4
+
+        str = "A B C D F S G D";
+        str = str.replace("D", "test"); // metoda .replace podmienia wybrany przez nas łańcuch znaków na wybrany przez nas nowy łańcuch znaków
+        console.log(str); // A B C test F S G D
+
+        str = str.replace(/D/g, "TEST") // /D/g wyrażenie regularne które globalnie w łańcuchu znaków zmieni wszystkie wystąpienia litery "D" na TEST
+        console.log(str); // A B C test F S G TEST
+
+        str = "123456789";
+        console.log( str.substring(2) ); // 3456789 metoda ta pokazuje nam łancuch znaków zaczynający się od 2 indexu do końca
+        console.log( str.substring(2, 5) ); // 345 tutaj natomiast po przecinku możemy ustalić do którego indexu chcemy zobaczyć nasz łańcuch znaków
+        console.log( str.substr(2, 5) ); // 34567 ta metoda jest podobna lecz ciutke inna drugi argument w tym przypadku "5" ustala nam ile kolejnych znaków od "2" indexu ma nam pobrać i pokazać
+        console.log( str.substr(-3) );  // 789 ===> trzy ostatnie indexy
+
+        str = "Wiktoria ma psa, Wiktoria ma też kota";
+        console.log(str.indexOf("Witkoria")); // 0 metoda ta pozwala nam na wybranie danego tekstu i pokazanie nam na którym indexie się zaczyna
+        console.log(str.indexOf(",")); // 15
+        console.log(str.indexOf("Wiktoria", 2)); // 17
+        console.log(str.lastIndexOf("Wiktoria")); // 17
+        console.log(str.lastIndexOf("Kawsek")); // -1 jeśli jest -1 to nie ma takiego łańcucha znaków
+
+        let str2 = str.substring(str.lastIndexOf("Wiktoria"));
+        console.log(str2); // Wiktoria ma też kota
+        str2 = str.substring(str.indexOf("Wiktoria"));
+        console.log(str2); // Wiktoria ma psa, Wiktoria ma też kota
+        
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

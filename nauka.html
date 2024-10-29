@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            -   relational operators - operatory relacyjne porównują operandy 
+            i zwracają true jeśli spełnione jest porónanie
+
+            - typeof operator - operator zwracający typ wartości w zmiennej lub stałej. Typ określony 
+            jest jako łańcuch znaków.
+
+            - Zmienna niezadeklarowana to taka, która nie była powołana do zycia za pomocą:
+             let, var czy const. Zmienna niezdefiniowana to taka, która jest utworzona ale nie ma przypisanej
+             wartości początkowej. Zmienna zadeklarowana jest utworzona z let, var lub const, a gdy ma 
+             przypisaną wartość to dodatkow jest zdefiniowana.
+
+             - Koercja to automatyczna konwersja typu wartości w JS gdy wymaga tego sytuacja.
+        */
+
+        let obj = { data: 'a'};
+         if ('data' in obj) console.log('jest true');
+
+         let date = new Date(2024, 12, 20);
+        console.log(date)
+
+        if(date instanceof Date) console.log('jest z Date');
+
+        console.log(typeof 13); //"number"
+        console.log(typeof "str"); // "string"
+        console.log(typeof "46"); //string
+        console.log(typeof false); //"boolean"
+        console.log(typeof {a: 12}); //"object"
+        console.log(typeof [1,2,3]); //"object"
+        console.log(typeof undefined); //"undefined"
+        console.log(typeof 10n); //"bigint"
+        console.log(typeof Symbol()); //"symbol"
+        console.log(typeof console.log()); //"function"
+        console.log(typeof null); //"object" - błąd
+
+        let dane = 200;
+        if (typeof dane == "number") {
+            console.log("liczba");
+        } else if (typeof dane == "string") {
+            console.log("String");
+        }
+
+        let a; // zadeklarowana
+        console.log(a); // niezdefiniowana
+
+        a = 23; //zdefiniowana
+
+        //b; // niezadeklarowana
+
+        // Konwersje jawne
+        let str = String(22);
+        console.log(typeof str); //string
+
+        let num = parseInt("2423");
+        console.log(typeof num); //number
+
+        // Konwersje niejawne 
+
+        let  bool = "test" + 10;
+        console.log(bool); // "string test10"
+
+        if (10 - "3" == 7) console.log("Wykona się");
+        let c = +"12"; //12 jako number 
+        console.log(c); 
+
+        if ( {} == "[object object]") console.log("Wykona się");
+        console.log(String({})); // [object Object]
+
+        /*
+            Negacja wymusza konwersję na boolean i odwraca znak, ale podwójna negacja w praktyce konwertuje 
+            "prawdziwe" wartości na true. a "falsy" na false
+        */
+
+        //console.log(!!1); //true
+
+        /*
+            W js możemy utworzyć globale zmienne czyli bedą dostępne w całym programie. Natomiast zmienne
+            / stałe lokalne o zasięgu bloku kodu utworzymy z let i const. W bloku kodu możemy nawet
+            powołać nową zmienną / stałą o tej samej nazwie co globalna i przesłoni ją w tym bloku,
+            będzie inną wartością
+         */
+        /*
+         let aA = 10;
+         const data = "Asia"
+         if (true){
+            let b = 100; // b tylko w tym bloku
+
+            console.log(aA); // 10
+            const data = "Kasia"
+            console.log(data); // "Kasia"
+            
+        }
+
+         console.log(b); // undefined - jest błąd ponieważ b nie istnieje w takim zakresie
+         */
+        /*
+         let name = "kazik";
+         if (name == "Kazik") {
+            let name = "Wiktoria";
+            console.log(name); // Wiktoria
+        }  
+        console.log(name);*/
+        /*
+            Zmienna var
+            Zanim w ES2015/ES6 wprowadzono let i const w JS mieliśmy tylko dostępne var do powołania zmiennych.
+            Tworząc zmienną var musimy pamiętać że nie ma zasięgu blokowego!
+        */
+       /*
+        var d = 10;
+        if (true) {
+        var d = 78;
+        console.log(d); // 78
+        }
+        console.log(d); // 78
+        */
+        /*
+            Funkcje pozwalają na wielokrotne wywołanie jakiegoś kodu. Tworzymy je za pomocą slowa kluczowego 
+            function oraz dowolnej nazwy funkcji. Wywołuje je z pomocą nawiasów okrągłych ()
+            Funckaj może przyjmować dane, w jej deklaracji podajemy je po przecinku i są to wewnętrzne zmienne
+            funkcji zwane parametrami.Natomiast przy wywołaniu funckji przekazywane dane do funkcji
+            nazywamy Parametrami.
+        */
+
+        // Deklaracja funkcji
+        // a, b, c, to parametry funkcji
+        function test(a, b, c) {
+            let sum = a + b + c;
+            console.log("Suma:", sum);
+        }
+
+        // przekazywane dane to argumenty
+        test(3,4,5); //12
+
+        function multiply(a, b) {
+            let multiply = a * b;
+            console.log("Wynik to:", multiply);
+        }
+
+        multiply(2, 10);
+        multiply(100, 56);
+        multiply(12345, 12345);
+
+        /*
+            return pozwala na wyjście z funkcji oraz zwrócenie z niej wartości
+        */
+
+        function japierdziele(a, b) {
+            let result = a - b;
+            return result;
+        }
+
+        let dataTa = japierdziele(100, 45);
+        console.log("Rezultat",dataTa) // 55
+
+
+        function test(name) {
+            if (name == "Asia") {
+                return ;
+            } else {
+                console.log("Witaj koleżko");
+            }
+        }
+
+        test("wiki")
+
+        function averageNum(a, b, c, d) {
+            return avg = (a + b + c + d)/4;
+        }
+        averageNum(1, 2, 3, 4);
+        console.log("Średnia", avg);
+        averageNum(30, 50, 60, 70);
+        console.log("Średnia", avg);
+        averageNum(5, 10, 15, 20);
+        console.log("Średnia", avg);
+
+        // Funkcje mogą zwracać również obiekty
+        // indexOf - wyszukanie czegoś w nazwie
+        function createUser(name, email, city) {
+            if (name.lenght < 3) return null;
+            if (email.lenght < 2) return null;
+            if (email.indexOf("@") < 0) return null;
+            if (city.lenght < 2) return null;
+
+            let obj = {
+                name: name,
+                email: email,
+                city: city,
+                type: "employer"
+            }
+
+            return obj;
+        }
+
+        let user1 = createUser("Wiktoria", "wiktoria@gmail.com", "Klimontów");
+        console.log(user1);
+        let user2 = createUser("Łukasz", "wiktoria@gmail.com", "Klimontów");
+        console.log(user2);
+
+        function createPhone(brand, name, system, color) {
+            if (system != "Android" && system != "IOS") return null;
+            
+            let phone = {
+                brand: brand,
+                name: name,
+                system: system,
+                color: color
+            };
+            return phone;
+        }
+
+        let userPhone1 = createPhone("Sony", "Xperia", "Android", "black")
+        console.log(userPhone1);
+        let userPhone2 = createPhone("Iphone", "Max", "IOS", "black")
+        console.log(userPhone2);
+        let userPhone3 = createPhone("Nokia", "NGAGE", "Symbian", "silver")
+        console.log(userPhone3);
+
+
+        /*
+            function expression - wyrażenie funkcyjne to funkcja anonimowa przypisana do zmiennej lub stałej
+        */
+        /*
+       let showName = function (name) {
+            console.log(name);
+        }
+
+        showName  ("Wiktoria")
+
+
+        let testTego = showName;
+        testTego("Kasia");
+
+        
+        let addition = function (a, b) {
+            console.log("Wynik to:", a + b);
+        };
+        console.log(addition(2,5));
+        let additionTest = addition;    
+        console.log(additionTest(10,20));
+        */
+        /*
+            callback - to funkcja przekazana jako argument do innej funkcji, dzięki czemu może być wewnątrz 
+            wywołana jeśli zachodzi potrzeba.
+        */
+
+        function show(data) {
+            console.log(data);
+        }
+
+        function showArr(arr, callback) {
+            for (let i = 0; i < arr.lenght; i++) {
+                let num = arr[i];
+                callback(num);
+            }
+        }
+
+        showArr([1,2,3,4,5], show);
+
+        function greaterThan5(arr, callback) {
+            for (let i = 0; i < arr.length; i++) {
+                let numbers = arr[i];
+                if (numbers > 5) callback(numbers);
+            }
+        }
+
+        greaterThan5([1,2,3,4,5,6,7,8,9,10], show);
+
+        /*
+            Obiekt arguments w funkcji posiada przekazywane argumenty przy wywołaniu funkcji. Obiekt ten dostepny 
+            jest tylko w zwykłych funkcjach, nie ma go w strzałkowych.
+        */
+
+        function sumAll() {
+            let result = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                 result += arguments[i];
+                }            
+            return result;
+            }
+
+            let sum = sumAll(1,2,3,4,5,6,7,8,9);
+            console.log(sum); //45
+
+        /*
+            Prymitywy przekazywane są przez kopię, a obiekty przez referencję. Obiekty zatem mogą być 
+            zmieniane po przekazaniu do funkcji.
+        */
+        
+            function foo(num, objJ) {
+                num = 10;
+                console.log(num);
+                objJ.data = "Wiktoria";
+                objJ.test = 11;
+            }
+
+            let aA = 5;
+            let objJ = {data: "txt"};
+            foo(aA, objJ);
+
+            console.log(aA); // 5
+            console.log(objJ);
+
+
+            function panda(arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    let num = arr[i];
+                    arr[i] = num * 2;
+                }
+            }
+
+            let tab = [1,2,3,4,5];
+            panda(tab);
+            console.log(tab); 
+            
+            // Funkcje zagnieżdżone
+
+            function foo(data) {
+                function bar(num) {
+                    return num * 3;
+                }
+                let result = bar(data);
+                return result;
+            }
+
+            console.log(foo(10)); // 30
+
+            /*
+                Domyślne argumenty funkcji dostępne są od EcmaScript2015 - ES6
+            */
+            function createUser(name = "unknown", email = "unknown@gmail.com") {
+                return {
+                    name: name,
+                    email: email
+                };
+            }
+
+            let user3 = createUser("Ania");
+            console.log(user3); // Ania unknown@gmail.com
+
+            /*
+                Operator rest zbiera przekazane argumenty do funkcji w tablicę np function foo(...params) { }
+            */
+            function foo(...params) {
+                console.log(params);
+            }   
+
+            foo(1,2,3,4,5,6);
+
+            /*
+                Spread operator z EcmaScript2015 rozbija tablice/obiekt na pojedyńcze wartości
+            */
+
+            function bar(a, b, c) {
+                console.log(arguments);
+            }
+
+            let arr = [99, 100, 101];
+            bar(...arr); //spread operator
+
+
+            let obj1 = {
+                name: "Wiktoria",
+                city: "Klim"
+            };
+
+            let user4 = {
+                ...obj1,
+                email: "Wiki@gmail.com"
+            };
+
+            console.log(user4);
+
+            function createComputer(cpu, ram, dysk) {
+                return  {
+                    cpu: cpu,
+                    ram: ram,
+                    dysk: dysk
+                };
+            };
+
+            let computer = createComputer("amd","8gb","1TB");
+
+            function createLaptop(type, weight) {
+                return {
+                    ...computer,
+                    type: type,
+                    weight: weight
+                }
+            };
+            let laptop = createLaptop("","laptop","3");
+            console.log(laptop);
+
+
+
+            function poo(imie, nazwisko, miasto ="uknown") {
+                return {
+                    imie: imie,
+                    nazwisko: nazwisko,
+                    miasto: miasto
+                };
+            };
+            let  osoba = poo("Wiktoria", "Bień","Klimontów");
+
+            function doo(email = "unknow@gmail.com", tel,) {
+                return {
+                    ...osoba,
+                    email: email,
+                    tel: tel
+                };
+            };
+            let kontakt = doo("Wiktoria@gmail.com", 123123123);
+            console.log(kontakt);
+
+
+            /*
+                Metody to wewnątrzne funkcje obiektu, które zwykle operują na danych tego obiektu. Metoda odwołuje się 
+                do danych swojego obiektu za pomocą this.nazwaZmiennej
+            */
+
+            let phone = {
+                brand: "Sony",
+                model: "Xperia",
+                manufactureDate: 2023,
+                connect: function (msg) {
+                    console.log("łącze się i przekazuję: " + msg);
+                    this.getInfo();
+                },
+                getInfo: function () {
+                    console.log(this.brand, this.model, this.manufactureDate);
+                }
+            }
+
+            phone.connect("hello");
+            phone.getInfo();
+
+
+            let carFactory = {
+                name: "Factory",
+                city: "Kraków",
+                brand: "ford",
+                employees: [],
+                addEmployee: function (name, surname) {
+                    const obj = {
+                        name: name,
+                        surname: surname,
+                        email: `${name.toLowerCase()}.${surname.toLowerCase()}@gmail.com`
+                    };
+                    let index = this.employees.length;
+                    this.employees[index] = obj;
+                },
+                showEployees: function () {
+                    console.log(this.name, "employees");
+                    for (let i = 0; i < this.employees.length; i++) {
+                        const e = this.employees[i];
+                        console.log(e.name, e.surname, e.email);
+                    }
+                },
+                makeCar: function (model, color) {
+                    return {
+                        brand: this.brand,
+                        model: model,
+                        color: color
+                    };
+                }
+            };
+
+            carFactory.addEmployee("Wiktoria","Bień");
+            carFactory.addEmployee("Łukasz","Puzio");
+            console.log(carFactory);
+
+            carFactory.showEployees();
+
+            let car1 = carFactory.makeCar("Mustang", "red");
+            console.log(car1);
+
+            carFactory.name = "Factory Ltd.";
+            carFactory["name"] = "Car Factory Ltd";
+            console.log(carFactory.name);
+
+
+            let school = {
+                name: "ZS2ND",
+                city: "Nowa Dęba",
+                students: [],
+                addStudents: function (name, surname, ) {
+                    let obj = {
+                        name: name,
+                        surname: surname
+                    };
+                    let index = this.students.length;
+                    this.students[index] = obj;
+                },
+                showStudents: function () {
+                    console.log(this.students);
+                    for (let i = 0; i < this.students.length; i++) {
+                        const e = this.students[i];
+                        console.log(e.name, e.surname);
+                    } if (this.students == 0) {
+                        console.log("Szkoła nie ma studentów");
+                    }
+                },
+                getNumStudents: function () {
+                    return this.students.length;
+                },
+                resetStudents: function () {
+                    this.students = [];
+                }
+            };
+
+
+            school.addStudents("Marcin","Puzio")
+            school.addStudents("Maks","Kwaśnik")
+            school.addStudents("Wiktoria","Bień")
+            console.log(school);
+            console.log(school.getNumStudents);
+            console.log(school.getNumStudents);
+
+            school.showStudents();
+
+            school.resetStudents();
+
+            /*
+                Funkcja strzałkowa czyli arrow function to skrócony zapis dodany od wersji EcmaScript2015/ES6
+            */
+
+            function test(a, b) {
+                return a * b;
+            };
+
+            let multiplyTest = (a, b) => a * b;
+            console.log(multiplyTest(3,9)); // 30
+
+            let substrack = (a, b) => {
+                return a - b;
+            };
+
+            console.log(substrack(15, 3));
+
+
+
+            /*
+                Funkcja strzałkowa nie ma dostępu do obiektu arguments, ale możemy użyć operator rest.
+            */
+
+          // let show = () => console.log(arguments);
+          // show(1,2,3,4,);
+
+            /*
+           let showed = (...params) => console.log(params);
+           showed(1,2,3,4,);
+
+           let getObj = (data) => {
+            return {
+                data: data
+            };
+           }
+
+           let getObj2 = (data) => (
+                {
+                    data: data
+                }
+           );
+           
+
+           console.log(getObj2("test"));
+
+           /*
+                IIFE - Immediately Invoked Function expression to funkcja natychmiastowa,
+                również anonima. Ogranicza dostęp do zmiennych i funkcji tylko od niej, czyli nie zaśmieca 
+                globalnymi danymi naszego programu.
+           */
+          /*
+                (function(data)
+                {
+                    console.log(data);
+
+                    let anonim = 10;
+                    function foo() {
+                        console.log(anonim);
+                    }
+
+                    foo();
+                })("test2");
+                */
+
+            /*
+                Objekty mogą być utworzone również dzięki konstruktowi
+                czyli specjalnej funkcji, pewnego szablonu na bazie którego powastanie obiekt.
+                Stworzenie nowej instancji obiektu, czyli nowego egzemplarza będzie wymagało wykorzystanie
+                słowa kluczowego new. Nazwy konstruktorów przyjeło sie pisać z dużej litery dzięki czemu 
+                wszyscy programiści wiedzą że to konstruktor.
+            */
+           let wiki = new Date();
+           console.log(wiki.getHours);
+
+            function Car(brand, name, color) {
+                this.brand = brand;
+                this.name = name;
+                this.color = color;
+                this.year = 2000;
+
+                this.printInfo = function () {
+                    console.log(`${this.name} - ${this.color}`);
+                }
+            }
+
+                let car2 = new Car("Ford", "Mustang", "red");
+                console.log(car2);
+
+                car2.printInfo();
+
+                
+                /*
+                    Bez new wywołanie konstruktora sprawi że this będzie obiektem window, 
+                    czego należy unikać.
+                */
+            
+            let car =   Car("Ford","Fiesta");
+            console.log(car); // undefined 
+            
+            console.log(window.brand); //Ford
+            window.printInfo(); // Ford Fiesta 
+
+            function Vehicle(brand, name, color) {
+                if (this instanceof Vehicle == false ) {
+                    // bez new 
+                    return new Vehicle(brand, name, color);
+                }
+
+                this.brand = brand;
+                this.name = name;
+                this.color = color;
+                this.year = 2000;
+
+                this.printInfo = function () {
+                    console.log(`${this.brand} - ${this.name} - ${this.color}`);
+                }
+            }
+
+            let v1 = Vehicle("Dodge", "Viper", "Black");
+            console.log(v1);
+            let v2 = new Vehicle("BRABUS", "AMG", "Pink")
+            console.log(v2);
+
+
+            let obj3 = {
+                a: 10, 
+                b: "txt",
+                printData: function () {
+                    console.log('Hello');
+                },
+                arr: [1, 2, 3]
+            };
+
+            for (const prop in obj3) {
+                if (obj3.hasOwnProperty(prop)) {
+                    console.log(prop, obj3[prop]);
+                }
+            }
+            /*
+                Jeżeli dodamy setter do obiektu dla danej zmiennej to zostanie wywołany automatycznie 
+                przy zapisie wartości do tej zmiennej. Podobnie będzie z getterem przy pobraniu wartości
+            */
+
+            const user5 = {
+                _name: null,
+
+                set name (wiktoria) {
+                    // setter
+                    if (wiktoria.length > 2) {
+                        this._name = wiktoria;
+                    } else {
+                        console.log("Name too short picici");
+                    }
+                },
+                get name() {
+                    // console.log("getter");
+                    return this._name;
+                }
+            };
+
+            user5.name = "Wiktoria";
+            console.log(user5.name);
+
+            /*
+                Obiekt window to ogólnodostepny obiekt w przeglądarce w której działa JS, udostępnia
+                nam wiele przydatnych informacji o aktualnej karcie/oknie przeglądarki.
+            */
+
+            console.log(window.innerWidth);
+            console.log(window.innerHeight);
+
+            // window.alert("Hello world");
+            // alert("Hello world");
+
+            console.log(innerWidth);
+
+            setTimeout(function () {
+                console.log("Hejka");
+            }, 2000);
+
+            let i = 0;
+            let intervalId = setInterval(() => {
+                console.log(i);
+                i++;
+            }, 500);
+
+
+            setTimeout( () => {
+                clearInterval(intervalId);
+            }, 5000
+            );
+
+            // let userInput = prompt("Podaj swoje imie:");
+            // console.log("Twoje imię to: ",userInput);
+
+
+           //  let userInput = prompt("Podaj liczbę:");
+           // let intNum = parseInt(userInput); // konwertuje stringa na int
+           //  console.log(intNum + 10);
+            
+            let userInput = prompt("Podaj liczbę zmiennoprzecinkową:");
+            let floatNum = parseFloat(userInput); // konwertuje stringa na float
+            console.log(floatNum + 10.5);
+
+            /*
+                Event handlers to zmienne pod które możmy podpiąć nasze funckje i będą wywowale przez
+                np. przeglądarkę gdy zajdzie jakieś zdarzenie. Przykładowo zdarzenie load będzie wywolane, gdy wszystkie elementy
+                witryny zostaną załadowane jak kod html, css, obrazki itd. Aby podpiać się pod zdarzenie load wystarczy użyć
+                window.onload do którego przypiszemy naszą funckję
+            */
+
+            window.onload = function () {
+                console.log("Strona załadowana");
+            };
+            /*
+            window.onresize = function () {
+                console.log(innerWidth);
+                console.log(window.innerHeight);
+            };
+            */
+            // Zdarzenia możemy również podpiąć z wykorzystaniem funkcji addEventListener
+
+            window.addEventListener("load", function(event){
+                console.log("Strona doładowana");
+                console.log(event);
+            });
+
+            window.addEventListener("resize", function (event){
+            console.log(innerWidth, innerHeight);
+            });
+
+            /*
+                Zakres u większości języków programowania definiowany jest przez blok kodu, ale nie w JS.
+                W JS istnieje zakres globalny oraz lokalny. Zakres tzw. scope to widoczność zmienych dla poszczególnych części programu.
+
+                Zakres globalny istnieje przez cale życie skryptu, raz zadeklarowana zmienna globalna już tam pozostanie, chyba że użyjemy na niej delete.
+                Globalna zmienna może być używana wewnątrz oraz poza funkcją, w praktyce gdziekolwiek w bieżącym dokumnecie.
+                W przeglądarce window jest obiektem globalnym.
+
+                Zakres lokalny istnieje wewnątrz funkcji  w której zmienna została zadeklarowana, również argumenty funckji.
+
+                Domyslnie JS nie ma zakresu blokowego z var co powoduje pewne problemy.
+            */
+
+            let g1 = 10; // globalna zmienna 
+            var g2 = 20; // globalna zmienna
+            var g2 = 99; // globalna zmienna
+
+            let kwasek = 78; // zmienna globalna
+
+            if (1 ==1){
+                var g3 = 100; // globalna zmienna
+                window.g4 = 200; // globalna zmienna, unikac!
+                console.log("test");
+                let kwasek = 56; // zmienna lokalna
+                console.log(kwasek);
+            }
+            console.log(g2); // globalna zmienna 99
+            console.log(g3); // globalna zmienna czyli 100
+            console.log(g4); // globalna zmienna czyli 200
+            console.log(kwasek); // 78
+
+            for (var h = 0; h < 5; h++) {
+            }
+            console.log(h);
+
+            /*
+                Scope w funkcji - wszystko zadeklarowane wewnątrz funckji z var, let i const ma zakres lokalny, widoczne 
+                jest tylko w funkcji. z poziomu funkcji mamy dostęp do zmiennych globalnych, możemy też te globalne zmienne przesłonić.
+            */
+
+            let test2 = 22; 
+            var data2 = 33; 
+
+            function foo() {
+                let test2 = 21232; // lokalne, przysłaniaja globalne
+                var data2 = 31233; // lokalne, przysłaniaja globalne, zakres funkcyjny
+
+                someVar = 45; // utworzona globalna, unikać!
+            };
+
+
+            foo();
+            console.log(test2); // 22
+            console.log(data2); // 33
+            console.log(window.someVar); // 45, globalna
+
+
+            function bar() {
+                "use strict"
+               // someData = 245; // someData is not defined, błąd
+            };
+
+            bar();
+
+            /*
+                Hoisting to przeniesienie wszystkich deklaracji zmiennych na początek funkcji
+                natomiast przypisania wartości pozostają na swoim miejscu. Dodatkowo funkcje też przenoszone
+                są na początek programu.
+            */
+
+            function test1() {
+                console.log(a); // undefined
+                var a = 10;
+                console.log(a);
+            }
+
+            test1();
+
+            function test3() {
+                var a; // undefined
+                console.log(a); // undefined
+                a = 10;
+                console.log(a);
+            }
+            test3();
+
+            foo(); // hoisting działa też dla funckji
+
+            function foo() {
+                console.log("foo");
+            }
+
+           // exprTest() // błąd exprTest is not defined
+            var exprTest = function () {
+                console.log("exprTest()!");
+            }
+
+            // console.log(data4);
+            // let data4 = 10;
+
+            /*
+                Poza blokiem zmienna let może być używana, ale gdy wewnątrz istnieje deklaracja let z tą
+                samą nazwą to powstaje przestrzeń, gdzie zmienna z poza bloku nie może byc użyta tzw. Temporal Dead Zone
+            */
+
+
+            let j = 6;
+
+            if (1 == 1) {
+                j = 100;
+                console.log(j);
+            }
+
+            console.log(j);
+
+            let y = 6;
+
+            if (1 == 1) {
+               // y = 100; //Cannot access 'y' before initialization
+                let y = 9; 
+                console.log(y); // 9
+            }
+
+            console.log(y); // 6
+
+            /*
+                Prymitywy jak number czy string mają swoje odpowiedniki w postaci obiektów. Możemy wykorzystywać
+                ich konstruktory tzw. wrappery aby mieć możliwość wykorzystania przydatnych metod. Dodatkowo JS rboi ten 
+                prces automatycznie, gdy wywołamy na obiet i po wszystkim wraca do swojej prymitywnej postaci
+            */
+
+            let str2 = "hello world!";
+            str2 = str.toUpperCase()
+            console.log(str2);
+            console.log(str2.lenght);
+            let txt = new String("Helllolo");
+            
+            let num2 = new Number(123.121323123);
+            num2 = num2.toFixed(2);
+            console.log(num2);
+
+            let num3 = 4214.12314;
+            num3 = num3.toFixed(3);
+            console.log(num3);
+
+
+
+            /*
+                W Js tylko obiekty i tablice tak naprawdę nadpisują swoją wartośćm czyli sa mutowalne. Natomiast prymitywy, gdy są zmieniane to w praktyce kasowana jest
+                poprzednia wartość i przypisywana nowa, czyli nazwa zmiennej/stałej wskazuje na nowe miejsce
+                w pamięci dla prymitywów
+            */
+           
+           let str4 = "hellllo!";
+           str[0] = "!"; // Prymitywy są niemutowalne
+           console.log(str4[0]); // h
+
+           str4 = str4 + "!!!";
+           console.log(str4); // hellllo!!!!  nowe miejsce w pamieci zajmuje
+
+
+            // typy złożone mutowalne
+            let arr3 = [1, 2, 3];
+            arr3[0] = 100;
+            console.log(arr3); // [100, 2, 3]
+
+
+            // Number - metody i właściwości
+
+            let num4 = 123.12; // number
+
+            let num5 = new Number(345.76);
+
+            console.log(Number.MAX_SAFE_INTEGER);
+            console.log(Number.MIN_SAFE_INTEGER);
+            console.log(Number.MAX_VALUE);
+            console.log(Number.MIN_VALUE);
+            console.log(Number.NEGATIVE_INFINITY);
+            console.log(Number.POSITIVE_INFINITY);
+            console.log(Number.NaN);
+
+            console.log(Number.parseInt("123") + 1000); // 1123
+            console.log(Number.parseFloat("123.1234") + 1000); // 1123.1234
+            console.log(Number.isInteger(6875)); // true
+            console.log(Number.isInteger(6875.123)); // false
+
+            let a7 = 1 / 0 // Infinity
+            console.log(a7);
+            console.log(Number.isFinite(a7)); // false , Sprawdza czy coś jkest nieskończone
+            console.log(Number.isFinite(123)); // true , Sprawdza czy coś jkest nieskończone
+            
+
+            console.log(Math.round(12.56)); // 13 zaokrągla 
+            console.log(Math.round(12.16)); // 12 zaokrągla
+            console.log(Math.floor(12.96)); // 12 zaokrągla w dół
+            console.log(Math.ceil(12.01)); // 13 zaokrągla w góre
+            console.log(Math.random() ); // losowa liczba między 0 - 1
+            console.log( Math.random() * 5 ); // 0 < X < 5
+            console.log( Math.sqrt(16)); // 4, pierwiastek kwadratowy
+            console.log(123.12341243.toFixed(2));
+            console.log(123.12341243.toFixed(3));
+            console.log(123.12341243.toFixed(4));
+
+
+            // String metody i właściwości 
+
+
+            let str5 = "hello ".concat("World!") // .concat pozwała nam łączyć łańcuch znaków z innym łańcuchem
+            str5 = str5.toUpperCase(); // łańcuch znaków z dużych liter
+            str5 = str5.toLowerCase(); // łańcuch znaków z małych liter
+            console.log( str.charAt(1) ); // .charAt służy żeby pobrać dany znak
+            console.log( str.charCodeAt(1) ); // .charCodeAt pokazuje kod znaku
+            let txt2 = " A B C D E";
+            let arr5 = txt2.split(" "); // ['A', 'B', 'C', 'D', 'E']
+            str5 = arr5.join("|");
+            console.log(str5); // |A|B|C|D|E
+
+            str5 = "A|B|C|D|E";
+            str5 = str5.replace("C", "test"); // uzyskamy A|B|test|D|E
+            console.log(str5);
+
+            str5 = "A|B|C|D|EA|B|C|D|EA|B|C|D|EA|B|C|D|E";
+            str5 = str5.replace(/C/g, "test");  // zastępuję literkę 'C' na 'test'
+            console.log(str5);
+
+            // Pobierania fragmentów tekstu z substring() oraz substr()
+
+            let str6 = "0123456789";
+            console.log(str6.substring(3));
+            console.log(str6.substring(3, 8)); // tutaj mamy przedzial od ktorego do którego indeksu pobieramy 
+            console.log(str6.substr(2, 3)); // wybieramy od którego indeksu wybieramy i ile wybieramy
+            console.log(str6.substr(-3)); // wybieramy trzy ostatnie indeksy
+
+            /*
+                indexOf pozwala na znalezienie fragmentu tekstu w łańcuchu znaków jako numer indeksu w łańcuchu
+                znaków jako numer indeksu jego wystapienie lub -1 jeśli go nie ma
+            */
+        
+            let str7 = "Wiktoria ma toficzka,  i lubi z nim wychodzić na spacery";
+
+            let pos = str7.indexOf("Wiktoria");
+            console.log(pos); // 0 = Wiktoria
+            let pos2 = str7.lastIndexOf("toficzka");
+            console.log(pos2);
+            let pos3 = str7.indexOf("Wiktoria", 25);
+            console.log(pos3); //
+
+            let pos4 = str7.indexOf("Łukasz");
+            console.log(pos4); // -1
+
+            let txt3 = str7.substring( str7.lastIndexOf("Wiktoria"));
+            console.log(txt3);
+
+            let data3 = true;
+            if (data3 == true) console.log("Info");
+
+            data3 = 0;
+            if (data3 == true) console.log("Info!!!!");
+
+
+            // falsy
+            if (0) console.log("nie wykona sie!");
+            if (-0) console.log("nie wykona sie!");
+            if ("") console.log("nie wykona sie!");
+            if (NaN) console.log("nie wykona sie!");
+            if (null) console.log("nie wykona sie!");
+            if (undefined) console.log("nie wykona sie!");
+            if (0n) console.log("nie wykona sie!");
+            if (false) console.log("nie wykona sie!");
+
+
+            // truthly
+            if ([]) console.log("Wykona się");
+            if ({}) console.log("Wykona się");
+            if ("asasd") console.log("Wykona się");
+            if (65) console.log("Wykona się");
+            if (true) console.log("Wykona się");
+            if (function (){}) console.log("Wykona się");
+
+
+            let arr2 = [1, 2, 3, 4,];
+            let tab2 = new Array(5, 8, "siedem", {}, []);
+            arr = [
+                [1, 2, 3],
+                [1231, 123, 1],
+                [131, 13, 1],
+            ];
+
+            console.log(arr[2][2]); // 1
+
+            arr = [
+                { name: "Wiktoria" },
+                { name: "Maks" },
+                { name: "Łukasz" },
+            ];
+            console.log(arr);
+
+            arr = [1, 2];
+            arr[2] = 3;
+            arr[arr.length - 1] = 4;
+
+            let data4 = [4, 5, 6]
+            data4.push(7);
+            data4.push(8);
+            console.log(data4);  // [4, 5, 6, 7, 8]
+
+            let a5 = data4.pop(); 
+            console.log(a5); // 8
+            console.log(data4); // [4, 5, 6, 7]
+
+            data4 = data4.reverse();
+            console.log(data4); // [7, 6, 5, 4]
+
+            data4 = data4.concat([3, 2, 1, 0]);
+            console.log(data4); // [7, 6, 5, 4, 3, 2, 1, 0]
+
+            let str8 = data4.join("|");
+            console.log(str8); // 7|6|5|4|3|2|1|0
+
+            let arr4 = new Array(8).fill(5);
+            console.log(arr4); // [5, 5, 5, 5, 5, 5, 5, 5]
+
+            console.log(Array(4).fill(2)); // [2, 2, 2, 2]
+
+            let arr6 = ["Wiktoria", "Maks", "Łukasz", "Marcin"];
+            arr6 = arr6.sort();
+            console.log(arr6); // ['Maks', 'Marcin', 'Wiktoria', 'Łukasz']
+            arr6 = arr6.reverse();
+            console.log(arr6); //['Łukasz', 'Wiktoria', 'Marcin', 'Maks']
+
+            let tab3 = [87, 111, 56, 123];
+            tab3 = tab3.sort();
+            console.log(tab3); // [111, 123, 56, 87]
+
+            tab3 = tab3.sort(function (a, b ) {
+                return a - b; // 5, 10
+                // zwrócona ujemna wartość to a mniejsze od b 
+                // 0 to równe wartości
+                // dodatnia to b większe od a
+            });
+
+            console.log(tab3); // [56, 87, 111, 123]
+
+
+            let arr9 = [5, 10, 15, 20, 25];
+
+            for (let i = 0; i < arr9.length; i++) {
+                console.log(arr9[i]);
+            };
+
+            for ( let el of arr9 ) {
+                console.log(el);
+            };
+
+
+            arr9.forEach( function(item, index, array) {
+                console.log(`index:${index} - ${item}`);
+            });
+
+            let arr10 = [123, 66];
+            arr10.push(12, 51, 66, 12);
+            console.log(arr10); // [123, 66, 12, 51, 66, 12]
+
+            arr10.unshift(1, 2, 3);
+            console.log(arr10); // [1, 2, 3, 123, 66, 12, 51, 66, 12]
+
+            let num6 = arr10.shift();
+            console.log(num6); // 1
+            console.log(arr10);  // [2, 3, 123, 66, 12, 51, 66, 12]
+
+            let arr11 = ["Wiktoria", "Maks", "Łukasz", "Marcin", "ed"];
+
+            let newArr = arr11.map(function (value, index, array) {
+                return value + "!";
+            });
+            console.log(newArr); // ['Wiktoria!', 'Maks!', 'Łukasz!', 'Marcin!']
+
+            let arr12 = arr.map((value) => value + "!!");
+            console.log(arr12);
+
+            let nums = [1, 2, 4, 8, 13, 23];
+            let results = nums.map(Math.sqrt);
+            console.log(results);  // [1, 1.4142135623730951, 2, 2.8284271247461903, 3.605551275463989, 4.795831523312719]
+
+            let filtered = arr11.filter( function (item){
+                return item.length > 3;
+            });
+            console.log(filtered); // ['Wiktoria', 'Maks', 'Łukasz', 'Marcin']
+
+
+            let tab4 = [1, 2, 3, 4, 5, 6, 7];
+            let v = tab4.reduce( function (accumulator, currentValue, index, array) {
+                return accumulator + currentValue;
+            });
+
+            console.log(v); // 28
+
+            console.log( tab4.every( v => v > 0 ) ); // true
+            console.log( tab4.every( v => v > 5 ) ); // false
+
+            /*
+                [].splice(start, deleteCount, item1, item2, ...)
+                Metoda spplice pozwala na skasowanie i dodanie za jednym razem kilku elementów do tablicy.
+                start określa od którego numeru indeksu zrobić zmianę, deleteCount - ile skasować elementów, reszta 
+                parametrów to nowe elementy do dodania. 
+                Funkcja ta modyfikuje tablice i zwraca skasowane  elementy.
+            */
+
+           let arr13 = ["a", "b", "c", "d", "e", "f"];
+
+            let deleatedElements = arr13.splice(1, 3);
+            console.log(deleatedElements); // ['b', 'c', 'd']
+            console.log(arr13); // ['a', 'e', 'f']
+
+            arr13.splice(2, 0, "G", "H", "I", "J");
+            console.log(arr13); // ['a', 'e', 'G', 'H', 'I', 'J', 'f']
+
+            deleatedElements = arr13.splice(1, 4, "1", "2", "3", "4");
+            console.log(deleatedElements);  //  ['e', 'G', 'H', 'I']
+            console.log(arr13); //  ['a', '1', '2', '3', '4', 'J', 'f']
+
+
+            let obj2 = {
+                num: 10,
+                str: "txt",
+                printData: function() {
+                    console.log("Hellllllllooo");
+                },
+                arr: [1, 2, 3, 4, 5]
+            };
+
+
+            const objKeys = Object.keys(obj2);
+            console.log(objKeys);   // ['num', 'str', 'printData', 'arr']
+
+            for ( const key of objKeys) {
+                console.log(key, obj2[key]); 
+            };
+
+
+            const objValues =  Object.values(obj2);
+            
+            for (const v of objValues) {
+                console.log(v);
+            }
+
+            const entries = Object.entries(obj2); 
+
+            for (const [key, value] of entries) {
+                console.log(key,value);
+            }
+
+            /*
+    const - stała
+    let - zmienna
+    Typy danych: liczbowe,  
+    
+    let imie = prompt("Jak masz na imię")
+    console.log("Cześć " + imie)
+
+    let name = "Kamil";
+    let city = 'warszawa';
+
+    let greeting = `Hello ${imie}`;
+    let sentence = `doba ma ${12 + 12} godziny`;
+    console.log(greeting);
+    console.log(sentence);
+
+    let person = new Object();
+    person.name = imie;
+    person.age = 31;
+    console.log(person)
+
+    let person2 = {
+    name: "Janek",
+    age: 21
+    };
+    console.log(person2.name)
+
+    let a = 10;
+    a++
+    console.log(a);
+
+    let age2 = prompt("Ile masz lat?") 
+    
+    
+    if(age2 >= 18) {
+      console.log("Pamiętaj, aby alkohol spożywać z umiarem.")
+    } else {
+      console.log("Przykro nam ale ta strona zawiera niedozwolone treści dla niepełnoletnich.")
+    } 
+    */
+
+    /*
+    if(age2 < 18) {
+      console.log("Niestety nie możesz pić alkoholu ani w Polsce ani w USA.")
+    } else  if (age2 < 21 ){
+      console.log("Możesz legalnie pić alkohol w Polsce ale w USA jeszcze nie.")
+    } else {
+      console.log("Możesz pić alkohol i w Polsce i w USA.")
+    }
+    
+
+    age2 >= 18 ? console.log("Pamiętaj, by alkohol spożywać z rozsądkiem") : console.log("Przykro nam ale nie dostaniesz picia");
+    
+      Pętle: 
+    
+
+    let password;
+    while (password !="1234") {
+      password = prompt("Jakie jest hasło byczku!")
+    } 
+      console.log("Prawidłowe hasło byczku")
+
+      /*
+      do {
+        password = prompt("Jakie jest hasło")
+      } while (password != '1234');
+      console.log("Prawidłowe hasło!")
+      */
+
+      /*
+        for (let i=1; i<11; i++) {
+          console.log(i);
+        }
+      
+
+      let i = 1;
+     /*
+      while (i <11) {
+        console.log(i);
+        if (i == 5) break;  (kończy pętlę) 
+        i++;} 
+      
+       
+      while (i<11) {
+        i++;
+        if (i % 2 == 0) continue;
+        console.log(i);
+      }
+      
+
+      function sum(firstNumber, secondNumber) {
+        return firstNumber + secondNumber;
+      }
+
+      let result = sum(2, 3);
+      console.log(result);
+
+      let sum2 = (firstNumber, secondNumber) => {
+      console.log("Dodajemy dwie liczby")
+      console.log(firstNumber + secondNumber );
+      }
+      
+      let squeare = a => console.log(a * a);
+      squeare(4)
+
+    let names = ["mariusz", "dominik"];
+      name.push("Blazej");
+      name.unshift("andrzej")
+
+      let lastName = names.pop();
+      console.log(lastName);
+      /*
+        names.splice(2, 1);
+      
+
+
+    console.log(names[0]);
+    console.log(names[1]);
+    console.log(names[2]);
+    console.log(names[3]);
+
+    let products = new Map();
+    products.set(1, 'Marchewka');
+    products.set(2, 'Mleko');
+    products.set(3, 'Ser');
+
+      /* products.delete(3);  */
+      /* console.log(products.has(3)); - sprawdza czy dany produkt  istnieje w mapie */
+      /* for (let key of products.keys()) {console.log(key);} */
+      /* for (let value of products.values()) {console.log(value);} */
+      /* for (let entry of products.entries()) {console.log(entry);} */
+
+    /* console.log(products.get(1));
+    console.log(products.get(2));
+    console.log(products.get(3));
+
+    let names3 = new Set();
+    names.add('adam');
+    names.add('marek');
+    names.add('dominik');
+
+    for (let name of names) {123
+      console.log(names);
+    } 
+    
+      unary operators - operatory jednoargumentowe czyli przyjmują pojedyńczy operand 
+    
+    
+    
+    */ 
+
+    if (  true && true ) {
+      console.log("true!");
+    }
+
+    if ( 4 > 1 && 3 < 9 && 1 == 1) {
+      console.log("true!");
+    }
+
+
+    let obj4 = { a: 1, b: 2, str: "text", arr: [1, 2] };
+
+    let data5 = { test: 987 };
+
+    let result = Object.assign(data5, obj4); 
+    console.log(result); // {test: 987, a: 1, b: 2, str: 'text', arr: Array(2)}
+    console.log(data5 == result); // true
+    console.log(data5.arr == obj4.arr); // true
+
+    let o1 = {a: 1};
+    let o2 = {b: 2, arr: [53, 543, 2]};
+    let o3 = {c: 3};
+    let o4 = {d: 4};
+
+    let result2 = Object.assign({}, o1, o2, o3, o4);
+    console.log(result2); // {a: 1, b: 2, arr: Array(3), c: 3, d: 4}
+
+    /*
+        Serializacja to zapisane obiektu oraz jego właściwości w takim  stanie aby taki obiekt mógł być później
+        łatwo odtworzony 
+    */
+
+    let source = {
+        str: "text",
+        a: 23,
+        data: {
+            b: 111,
+            arr: [1, 2, 3, 4, 5]
+        },
+        date: new Date()
+    };
+
+    let strCopy = JSON.stringify(source);
+    console.log(strCopy); //  {"str":"text","a":23,"data":{"b":111,"arr":[1,2,3,4,5]}}
+   
+    let copy = JSON.parse(strCopy);
+    copy.date = new Date(copy.date)
+    console.log(copy); 
+
+    // Oddzielne obiekty
+    console.log(copy == source); // false
+    console.log(copy.data == source.data); // false
+    console.log(copy.data.arr == source.data.arr); // false
+
+
+    let obj5 = {
+        a: 12
+    };
+
+    Object.defineProperty(obj5, "prop", {
+        value: "test",
+        writable: true,
+        configurable: true,
+        enumerable: true
+    });
+
+    console.log(obj5);
+
+    let emoplyee = {
+        name: "Wiktoria",
+        printInfo: function (surname, city) {
+            console.log(this.name, surname, city);
+        }
+    };
+    emoplyee.printInfo("Kowalski", "KRK"); // Wiktoria Kowalski KRK
+
+    let user6 = {name: prompt("podaj imie")}; 
+    emoplyee.printInfo.call(user6, "Kowalski", "Wawa"); // Łukasz Kowalski Wawa
+    emoplyee.printInfo.apply(user6, ["jpkp", "Gdynia"]); // Łukasz jpkp Gdynia
+
+    let userInfo1 = emoplyee.printInfo.bind(user6, "Kowalski", "Wawraszawa");
+    console.log(userInfo1);
+    userInfo1(); // asd Kowalski Wawraszawa
+
+    /*
+    let userName = prompt("Podaj imię użytkownika");
+    let userSurname = prompt("Podaj nazwisko użytkownika");
+    let userCity = prompt("Podaj Miasto użytkownika");
+
+    let emoplyee1 = {
+        name: userName,
+        surname: userSurname,
+        city: userCity,
+        printInfo: function (name, surname, city) {
+        console.log(this.name, this.surname, this.city)
+        }
+    };
+
+    emoplyee1.printInfo();
+    */
+    /*
+        Obiekt docuemnt dostepny w przeglądarce reprezentuje sparsowany dokument html tzw.
+        Document Object Model, czyli DOM
+    */
+
+    
+
+</script>   
+
+</head>
+<body>
+   <div id="content">Lorem ipsum dolor sit amet</div> 
+   <ul id="menu" >
+        <li class="menu-item">link 1</li>
+        <li class="menu-item current">link 2</li>
+        <li class="menu-item">link 3</li>
+    </ul>
+    <input type="text" value="content">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <div id="quote"></div>
+   <script>
+
+    let div = document.getElementById("content");
+        console.log(div);
+        div.style.color = "red";
+        div.innerHTML = "<b>Hejka Piękny!</b>";
+
+        /*
+            document.querySelectorAll() - pobranie wielu elementów html ze względu na selektor css
+            document.querySelector() - pobranie jednego elementu ze względu na seleketor css
+        */
+
+    let liItem1 = document.querySelector("li.menu-item");
+    console.log(liItem1);
+    liItem1.style.fontWeight = "bold";
+
+    let liList = document.querySelectorAll("ul li.menu-item");
+    for (let i = 0; i < liList.length; i++) {
+        let li = liList[i];
+        li.style.color = "orange";
+    };
+    /*
+        document.getElementByTagName() - pobiera listę elementów ze względu na nazwę taga html
+    */
+
+    let liList1 = document.getElementsByTagName("li");
+
+    for (let i = 0; i < liList1.length; i++) {
+        let li = liList1[i];
+        li.style.color  = "blue";
+    };
+    /*
+        document.createElement() - tworzy nowy element html, który można dodać na stronie
+    */
+
+    //let p = document.createElement("p");
+    //p.innerHTML = "<u>TESSSSSSKKTKT</u>";
+
+    let div1 = document.querySelector("#content");
+    //div1.appendChild(p);
+
+    /*
+        Zdarzenie click myszy podpinamy na obiekcie document
+    */
+
+    let span = document.createElement("span");
+    span.innerHTML = "Kliknij mnie!";
+    document.getElementsByTagName("body") [0].appendChild(span);
+    
+    document.addEventListener("click", function (event) {
+        console.log(event.clientX, event.clientY);
+    });
+    // Zdarzenia pól input
+
+    let input = document.querySelector("input");
+    input.value = "Hello World"
+    let textarea= document.querySelector("textarea");
+    textarea.value="content....."
+    
+    input.addEventListener("input", function (event) {
+       // console.log(event.target);
+        console.log(event.target.value);
+    });
+
+    textarea.addEventListener("input", (event) => {
+        console.log(event.target.value);
+    });
+
+    // zdarzenia myszy
+
+    let p = document.getElementsByTagName("p")[0];
+
+    p.addEventListener("mouseenter", function (event) {
+        console.log("Mouse enter");
+    });
+    p.addEventListener("mouseleave", function (event) {
+        console.log("Mouse leave");
+    });
+    /*
+        Format JSON czyli JavaScript Object Notation to prosty i czytelny forat danych, często stosowany
+        w komunikacji internetowej
+    */
+
+    let  jsonObject = `
+        {
+            "user": {
+                "name": "Wiktoria",
+                "surname": "Puzio",
+                "age": 25,
+                "languages": ["JavaScript", "HTML", "css"],
+                "address": {
+                    "city": "WWa",
+                    "street": "Kopernika"
+                }
+            }
+        }
+    `;
+        
+    let obj6 = JSON.parse(jsonObject);
+    console.log(obj6);
+    console.log(obj6.user.name); // Wiktoria
+
+    let car3 = {
+        brand: "ford",
+        model: "muciacio",
+        colors: ["red", "green"],
+        engine: {
+            type: "v8"
+        }
+    }
+    let car3Json = JSON.stringify(car3);
+    console.log(car3Json); // {"brand":"ford","model":"muciacio","colors":["red","green"],"engine":{"type":"v8"}}
+
+    fetch("https://swapi.dev/api/planets/1/")
+    .then(response => response.json() )
+    .then( showData );
+
+    function showData(obj) {
+        console.log(obj);
+    };
+
+    window.onload = function () {
+        let div = document.querySelector("#quote");
+
+        setInterval(function () {
+            getQuote(function(data) {
+            console.log(data);
+            div.innerHTML = data.quote;
+        });
+        }, 5000);
+
+    };
+
+    function getQuote(callback) {
+        fetch("https://dummyjson.com/quotes/random")
+        .then ( result => result.json())
+        .then ( callback );
+    }
+
+
+    /*
+        this w javascript wskazuje na tzw. execution context w którym jest wywowłany kod
+    */
+
+   console.log(this); // window
+   console.log(globalThis); // window
+
+   if ( 1 == 1) {
+    console.log(this); // window
+   };
+
+   function foo() {
+    console.log(this); // window
+   }
+   foo();
+
+   function bar() {
+    "use strict"
+    console.log(this); // undefined
+   }
+
+   bar();
+
+   let jbo = {
+    name: "Karol",
+    print: function () {
+        console.log(this); // objekt jbo
+    }
+   }
+
+   jbo.print();
+
+   let jbo2 = {
+    name: "Karol",
+    print: function () {
+        console.log(this); // objekt jbo
+        function test () {
+            console.log(this); // window
+        }
+        test();
+    }
+   }
+
+   jbo.print();
+
+   // call i apply pozwalają na zmiane this na inny obiekt.
+
+   let car4 = {
+    brand: "renault",
+    printData: function(model, color) {
+        console.log(this.brand, model, color);
+    }
+   };
+   car4.printData("megane II", "black"); // renault megane II black 
+
+   let bjo = { brand: "nissan"};
+   car4.printData.call(bjo, "skyline", "red"); // nissan skyline red
+   car4.printData.apply(bjo, ["r34", "blue"]); // nissan r34 blue
+
+   let viperPrintData = car4.printData.bind(bjo, ["viper", "red"]);
+   viperPrintData();
+
+    // this a funkcje nasłuchujące zdarzenia
+
+    let div2 = document.querySelector("div");
+    div2.addEventListener("click", function(event) {
+        console.log(this); // kliknięty div
+        console.log(event.target); // kliknięty div
+
+        setTimeout(function(){
+            console.log(this); // window
+            console.log(self); // div
+        }, 0);
+    });
+
+    /*
+        Wywołanie konstruktora z new ustawia this na aktualny obiekt przez co możemy ustawić jego
+        właściwości i metody
+    */
+
+    function User(name) {
+        this.name = name;
+        this.showData = function() {
+            console.log(this.name);
+        }
+    };
+
+    let john = new User("John Doe");
+    console.log(john);
+
+    let wikii = User("wiki");
+    console.log(window.name);
+
+    /*
+        JS nie posiada klas jak inne języki programowania ale ma prototypy, które pozwalają na 
+        dziedziczenie. Zamiast dziedziczenia na bazie klas mamy dziedziczenie prototypowe.
+
+        Dziedziczenie to współdzielenie pewnych funkcjonalności np. metod czy właściwości  z innych obiektów.
+
+        Wszystko w js oprócz typów prostych jest obiektem, również funkcje.
+        Dodatkowo funckje mają swoje własne metody np. call, apply, bind oraz właściwość prototype.
+
+        Domyślnie prototyp jest pustym obiektem stworzonym automatycznie podczas definicji funkcji. 
+        Każda instancja obiektu stworzona za pomocą tego samego konstruktora będzie współdzieliła ten sam
+        prototyp.
+    */
+
+    function foo() {
+
+    };
+    console.dir(foo);
+
+    let object = {};
+    console.log(object);
+
+    // Współdzielenie metod i właściwości w praktyce za pomocą prototypów
+
+    function Thing(name) {
+        this.name = name;
+    }
+
+    Thing.prototype.weight = 1;
+    Thing.prototype.year = 2023;
+    Thing.prototype.printInfo = function (){
+        console.log(this.name, this.year, this.weight);
+    }
+    console.log(typeof Thing.prototype); // object
+
+
+    let book = new Thing("book");
+    book.printInfo(); // book 2023 1
+
+
+    let pen = new Thing("pen");
+    pen.printInfo(); // pen 2023 1
+    console.log(pen);
+    console.log(pen.weight); // 1
+    console.log(pen.year); // 2023
+
+
+    /*
+        Przesłanianie pól prototype jest możliwe, gdy zdefiniujemy właściwość dla utworzonego obiektu.
+    */
+
+    function Car(brand) {
+        this.brand = brand;
+    };
+
+    Car.prototype.color = "black";
+    Car.prototype.showCar = function () {
+        console.log(this.brand, this.color);
+    };
+
+    let myFiat = new Car( "Fiat" );
+    myFiat.color = "blue";
+    myFiat.showCar(); // "Fiat blue"
+    console.log(myFiat);
+
+    let mycar = new Car("dodge");
+    mycar.showCar(); // dodge black
+    console.log(mycar);
+
+
+    function showObjData(obj) {
+        for ( const prop in obj ) {
+            if (obj.hasOwnProperty(prop))
+            console.log(prop, obj[prop]);
+        }
+    };
+
+    showObjData(myFiat); // brand: fiat i color: blue
+    showObjData(mycar); // brand: dodge
+
+    /*
+        Zmieniony prototyp jest aktulizowany dla wszystkich instancji, ale gdy przypisany jest obiekt
+        już tak się nie dzieje.
+    */
+
+    function Computer(brand) {
+        this.brand = brand;
+    }
+
+    Computer.prototype.color = "NBA";
+
+    let laptop1 = new Computer("dell");
+    console.log(laptop1);
+
+    let pc = new Computer("Alienware");
+    console.log(pc);
+
+    Computer.prototype.weight = 10;
+
+    Computer.prototype = {
+        year: 2024,
+        country: "USA"
+    };
+    Computer.prototype.constructor = Computer;
+
+    let tablet = new Computer("lenowo");
+    console.log(tablet);
+
+    console.log(tablet.constructor);  // Computer(brand)
+    console.log(laptop1.constructor); // Computer(brand)
+    console.log(pc.constructor); // Computer(brand)
+
+
+    /*
+        Array - tablice to specjalne obiekty w JS, które przechowują różne dane. Do poszczególnych
+        wartości możemy się dostać dzięki indeksom oraz nawiasom kwadratowym.
+    */
+
+    let names = [
+        "Wiktor", 123, "Wiktoria", "ja"
+    ];
+
+    names[3] = "Wojtek";
+    names[0] = "klamra";
+    names[4] = {a: "test"};
+
+    let primitiv = [
+        "string", "number", "boolean", "bigInt"
+    ];
+
+    console.log(primitiv);
+    console.log(primitiv[primitiv.length - 1]);
+    primitiv[0] = "string!"
+
+    /*
+        Instrukcja warunkowa if dodaje obsługę logiki w naszych programach. Sprawdza czy warunek jest 
+        spełniony, czy daje wartość true i następnie wykonywany jest blok kodu w nawiasach klamrowych po isntrukcji if
+    */
+
+    if (true) {
+      console.log("true");  
+    };
+
+    if (false) {
+        console.log("ni ma ");
+    };
+
+    if (10 > 0) {
+        console.log("10 większe od 0");
+    }
+    if (5 < 23) console.log("5 mniejsze od 23");
+
+    let flag = (7 + 3) > 9; // true
+
+    if (flag) {
+        console.log("flag ma true");
+    };
+
+    let flaga = -1;
+    let flagb = 9;
+
+    if (flaga < flagb) {
+        console.log("flaga jest mniejsza od flag o ");
+    };
+
+    if (10 > 7) {
+        console.log("10 jest większe od 7");
+    };
+    if (50 < 100) {
+        console.log("100 jest większe od 50");
+    };
+    if (6 > 9) {
+        console.log("6 jest większe od 9");
+    };
+
+    let kamikadze = 3;
+    if (kamikadze == 3) {
+        console.log("kamikadze jest równe 3");
+    }
+
+    /*
+       if else - bloki kodu dla spełnionego oraz nie spełnionego warunku 
+       if else if - sprawdzanie wielu warunków
+    */
+
+    kamikadze = 1;
+
+    if (kamikadze > 5) {
+        console.log("kamikadze jest większe od 5");
+    } else {
+        console.log("kamikadze jest mniejsza od 5");
+    };
+
+    let age1 = 18;
+
+    if (age1 == 17) {
+        console.log("w liceum");
+    } else if (age1 == 20) {
+        console.log(" na studiach");
+    } else if (age1 == 27) {
+        console.log("pracuje");
+    } else {
+        console.log("Żaden warunek nie jest spełniony");
+    };
+
+    let num7 = 55;
+
+    if (num7 > 80) {
+        console.log("num7 jest większe od 80");
+    } else if (num7 < 50 ) {
+        console.log("num7 jest mniejsze od 50");
+    } else if (num7 > 50) {
+        console.log("num7 jest większe od 50");
+    } else if (num7 == 50) {
+        console.log("num7 jest równe 50");
+    } else  {
+        console.log("num7 jest większe od 100");
+    };
+
+    /*
+        switch - pozwala na proste porównanie czy dana zmienna posiada jedną z wartości.
+    */
+
+    let kamikadze1 = "Wiki";
+
+    switch (kamikadze1) {
+        case "Wiki":
+            console.log("kamikadze1 to WIKI ");
+            break;
+        case 10: 
+            console.log("kamikadze1 jest 10");
+            break;
+        case 12: 
+            console.log("kamikadze1 jest 12");
+            break;
+        default: 
+            console.log("Zaden przypadek nie jest spełniony");
+        };
+
+    let temp = -5;
+
+    switch (temp) {
+        case -10:
+        case -5:
+            console.log("zimno");
+            break;
+        case 0:
+            console.log("zamarzanie wody");
+            break;
+        case 5:
+            console.log("przedwiośnie");
+            break;
+        case 10:
+            console.log("wiosna");
+            break;
+        case 20:
+            console.log("lato");
+            break;
+        default: 
+            console.log("nie znana tremperatura");
+    };
+
+    /*
+        while - pętla ta pozwala na wielokrotne wykonanie bloku kodu jeżeli warunek jest spełniony
+    */
+
+    let i1 = 0;
+
+    while (i < 5) {
+        console.log(i);
+        i = i +1;
+        // i++ - inkrementacja
+        // i-- - dekrementacja 
+    };
+
+    let i2 = -5;
+
+    while (i2 <= 5) {
+        console.log(i2);
+        i2++
+    };
+
+    let i3 = 100;
+
+    while (i3 >= 82) {
+        console.log(i3);
+        i3--
+    };
+
+    // while - iteracja po tablicy
+
+    const l =  [10,12,14,16];
+    let l2 = 0;
+    let sum1 = 0;
+    while (l2 < l.length) {
+        const el = l[l2];
+        console.log(el);
+
+        sum1 = sum1 + el;
+
+        l2++
+    };
+    console.log(sum1);
+
+    let iteracja = [1,2,3,4,5,6,7,8,9,10];
+    let g = 0;
+    let sum3 = 0;
+
+    while (g < iteracja.length) {
+        const eg =  iteracja[g];
+        console.log(eg);
+        sum3 = sum3 + eg;
+        g++;
+    };
+    console.log("Suma elementów:" + sum3);
+
+
+    let a1 = 5;
+    do {
+        console.log(a1);
+        a1--;
+    } while (a1 > 0)
+
+    // Pętla for
+
+    for (let i4 = 0; i < 3;  i4++) {
+        console.log(i4);
+    };
+
+    const tablica = [5,10,15,20];
+
+    for (let tablicaTaka = 0; tablicaTaka < tablica.length; tablicaTaka++) {
+        console.log(tablicaTaka);
+    };
+
+    const zadanie = [-5,-4,-3,-2,-1,0,1,2,3,4,5];
+    let sumka = 0;
+
+    for (let zadanko = 0; zadanko < zadanie.length; zadanko++) {
+       let num = zadanie[zadanko];
+       sumka = sumka + num ;
+       if (num > 0) {
+            console.log(num);
+       }
+    }
+    console.log("Suma wszystkich el", sumka );
+
+
+    /*
+        statment - polecenie w JS to gtupa słów, liczb albo operatorów które mają na celu wykonanie jakiegoś
+        zadania
+
+
+        słowa num i result to zmienne
+    */
+
+    let numerki = 10;
+    let rezultat = numerki * 4;
+
+    /*
+        Znaki * oraz = to operatory które umożliwiają operacje na zmiennych albo na liczbach itp. Dodatkowo
+        polecenie nazywane jest również instrukcją i każda instrukcja kończy się średnikiem;
+    */
+
+    /*
+        Wyrażenie to pewna część kodu którego wynikiem jest powstała wartość, natomiast polecenie składa się
+        z jednej lub większej ilości wyrażeń.
+    */
+
+    let datunia = 10 + 7;
+
+    /*
+        datunia to nazwa zmiennej
+        = to operator przypisania wartości
+        10 to wyrażenie w postaci literalnej wartości
+        10 + 7 to wyrażenie matematyczne
+
+        Wyrażenie wywołania funkcji np log w konsoli
+    */
+    console.log("Informacja");
+
+    /*
+        Operatory umożliwiają operacje na operandach niektóre operatory operują na jednym a inne na dwóch, czasem
+        nawet na trzech operandach. Wyrażenie w języku js które mają na celu uzyskanie jakieś wartości
+        są właśnie stworzone z operatorów które działają na operandach
+    */
+
+    let n = 10;
+    n **= 2; // 100 (do potęgi drugiej)
+    
+    /*
+        Operator modulo pozwala na uzyskanie reszty z dzielenia
+    */
+
+    console.log(10 % 7);
+    console.log(23 % 7);
+    console.log(10 % 10);
+
+    const tabliczkaa = [1,2,3,4,5,6,7,8,10,9];
+
+    for (let i = 0; i < tabliczkaa.length; i++) {
+        const num = tabliczkaa[i];
+        
+        if ((num % 2) == 0) {
+            console.log("liczba parzysta " + num);
+        } else {
+            console.log(num + " liczba nieparzysta");
+        }
+    };
+
+
+    let zadanieTablica = [1,2,3,4,5,6,7,8,9,10];
+    let number = 0;
+
+    for (let i = 0; i < zadanieTablica.length; i++) {
+        const num = zadanieTablica[i];
+        
+        if ((num % 2) == 0) {
+            number += num;
+        } else {
+            console.log(num + " liczby nieparzyste");
+        }
+    };
+    console.log(number);
+
+    /*
+        ternary - operatortrójargumentowy zwany również trójelementowym to skrócona instrukcja if else
+    */
+
+    let lata = 15;
+
+    if (lata > 17) {
+        console.log("dorosła");
+    } else {
+        console.log("niepełnoletnia");
+    };
+
+    // ternarny 
+
+    let latek = (lata > 17) ? "dorosła" : "niepełnoletnia"
+
+    console.log(latek);
+
+    /*
+        operator przecinka pozwala na zapisanie wielu wyrażeń tam gdzie zwykle wpisujemy jedno wyrażenie
+    */
+    
+    let c1 = 5, c2 = 10;
+    console.log(c1 + c2);
+     
+    /*
+        operatory porównania porównują lewy operand z prawym, zwracają true jeśli warunek jest spełniony, false jeśli nie
+    */
+
+    console.log(4 > 1); // true
+    console.log(4 < 1); // false
+    console.log(2 == 2); // false
+    console.log(3 == 2); // false
+    console.log(3 != 2); // true
+    console.log(12 >= 12); // true
+
+
+
+    let temp1 = -1;
+
+    if (temp1 <= 0) {
+        console.log("Zimno i ślisko");
+    } else if (temp1 <= 8) {
+        console.log("Wczesna wiosna");
+    } else if (temp1 <= 15) {
+        console.log("Wiosna");
+    } else if (temp1 < 25) {
+        console.log("lato");
+    } else if (temp1 >= 25) {
+        console.log("Upał");
+    };
+
+    /*
+        Operatory równości w przypadku sprawdzania obiektów tylko stwierdzają czy dwa obiekty mają ten sam 
+        adres w pamięci Wynika to z tego że dany obiekt, a raczej uchwyt do niego może być przechowany
+        w wielu zmiennych czy stałych, bo to typ złożony
+    */
+   let c3 = 5; // 5
+   let c4 = c3; // 5, kopia
+
+   // natomaist tworząc obiekty nie ma kopi tylko wskazują na ten sam obiekt
+
+   let obj7 = { data: 5}; // 5
+   let obj8 = obj7; // 5
+
+   obj7.data = 100;
+   console.log(obj7.data); // 100
+   console.log(obj8.data); // 100
+
+   /*
+    Ścisłe operatory porównania tzn. === sprawdzają zarówno czy obie wartości są równe, ale dodatkowo
+    czy ich typ jest taki sam. Jezeli wartości są takie same np ze względu na automatyczną konwersję,
+    ale typ się nie zgadza to === zwróci false
+    */
+   
+    // automatyczna konwersja typów znaków
+    if (4 == "4") console.log("wykona się");
+    if (4 == "5") console.log("wykona się");
+
+    // ścisłe porównanie nawet znaków i typów
+    if (4 === "4") console.log("nie wykona się");
+    if (5 === 5) console.log("nie wykona się");
+
+
+    /*
+        Operator logiczny and czyli && umożliwia sprawdzzenie kilku warunków za jednym razezm.
+        Jeżeli wszystkie warunki zwrócą true to on również na końcu zwróci true
+    */ 
+   if ( true && true ) {
+        console.log("Wykona sie, zgadza się");
+   };
+
+
+   if (4 > 1 && 4 === 4 && 3 != 4) {
+    console.log("wykona się");
+   };
+   
+   if (4 > 1 && 4 === 5 && 3 != 3) {
+    console.log("nie wykona się");
+   };
+
+   // wykona się wyłacznie wtedy gdy po każdej stronie musi być true, jeśli raz gdzieś bedzię false 
+   // operator zwróci false
+
+  /*
+   Operator logiczny or czyli || zwróci prawdę jeśli chociaż jeden warunek jest spełniony. Zwróci false jeśli 
+   wszystkie warunki dają false.
+  */
+
+  if (4 > 3 || 3 != 3 || false == true ) {
+    console.log("wykona się!");
+  };
+
+  if ( false || false ) {
+    console.log("nie wykona się");
+  };
+  // musi być conajmniej jeden true i wykona się kod ;p 
+
+
+  /*
+    not operator - czyli operator logiczny negacji który odwraca wartośc logiczną np : !true zamieni się na false
+  */
+
+  console.log(!true); // false
+  console.log(!false); // true
+
+  /*
+    unary operators - operatory jednoargumentowe czyli przyjmują pojedyńczy operand
+  */
+
+  let c9 = +"20" + 10;
+  let c10 = -"20" + 10; // -10
+  console.log(c9); // 30
+
+  // wartość tekstową można zmienić +,- na typ liczbowy
+
+  /*
+    relational operators - operatory relacyjne porównują operandy i zwracają true jeśli spełnione jest porównanie
+  */
+
+  let obj9 = {data: "a"};
+
+  if ("data" in obj9) {
+    console.log("true");
+  }
+
+  let arr14 = [1,2,3,4];
+  if (2 in arr) console.log("jest w arr");
+
+  let date1 = new Date(2024, 12, 20);
+  console.log(date1);
+
+  if (date instanceof Date) console.log("true jest z Date");
+
+  /*
+    tyopeof operator - operator zwracający typ wartości w zmiennej lub stałej.
+    Typ określony jest jako łańcuch znaków
+  */
+ console.log( typeof 12 ); // "number"
+ console.log( typeof "str" ); // "string"
+ console.log( typeof "46" ); // "string"
+ console.log( typeof false ); // "boolean"
+ console.log( typeof {a: 12} ); // "object"
+ console.log( typeof [1,2] ); // "object"
+ console.log( typeof undefined ); // "undefined"
+ console.log( typeof Symbol ); // "function"
+ console.log( typeof 10n ); // "BigInt"
+ console.log( typeof console.log ); // "function"
+ console.log( typeof null ); // "object" - błąd
+
+  let data6 = "Wiki";
+
+  if (typeof data6 == "number") {
+    console.log("liczba");
+  } else if (typeof data6 == "string") {
+    console.log("TOOO string!");
+  };
+
+  /*
+  Zmienna niezadeklarowana to taka, która nie była powołana do życia za pomocą:
+  let, var, const. Zmienna niezdefiniowana to taka, która jest utworzona ale nie ma przypisanej wartości początkowej
+  Zmienna zadeklarowana jest utworzona z let, var, const a gdy ma przypisaną wartość to dodatkowo jest zdefiniowana.
+  */
+
+  /*
+    koercje to automatyczna konwersja typu wartrości w Js gdy wymaga tego sytuacja
+  */
+
+  // konwersje jawne
+  let str9 = String(22);
+  console.log(typeof str9); // string
+
+  let num8 = parseInt("22222");
+  console.log(typeof num8); // number
+
+  // konwersje niejawne - koercje
+
+  let data7 = "test" + 10;
+  console.log( data7 ); // "string""test10"
+
+  if (10 - "3" === 7) {
+    console.log("wykona się");
+  };
+
+  if ( {} == "[Object Object]" ) console.log("wykona się!!!");
+  console.log(String({}) ); // [object Object] 
+
+
+  /*
+   wykorzystując wiele konstruktorów z prototypami możemy uzyskać łatwe dziedziczenie
+  */
+
+  function Vehicle(){
+    this.name = "vehicle";
+    this.toString = function () {
+        return this.name;
+    }
+  }
+
+  function Truck() {
+    this.name = "Truck"
+    this.numWheels = 6;
+  }
+  function Volvo(model, topSpeed) {
+    this.name="Volvo";
+    this.model = model;
+    this.topSpeed = topSpeed;
+  }
+
+
+  Truck.prototype = new Vehicle();
+  Truck.prototype.constructor = Truck;
+
+  Volvo.prototype = new Truck();
+  Volvo.prototype.constructor = Volvo;
+
+  let volvo1 = new Volvo("x1", 170);
+  console.log(volvo1.toString());
+
+
+   
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+
+
+
+
+
+
+
+   </script>
+</body>
+</html>

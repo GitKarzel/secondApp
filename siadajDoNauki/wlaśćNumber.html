@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Number - metody i właściwości
+        */
+
+        let num = 123.12345;
+
+        let num2 = new Number(12341.12314);
+
+        console.log(Number.MAX_SAFE_INTEGER);  // maksymalna wartość bezpieczna liczby całkowitej 
+        console.log(Number.MIN_SAFE_INTEGER);  //  minimalna wartość bezpieczna liczby całkowitej
+        console.log(Number.MAX_VALUE);  //  maksymalna wartość którą możemy zapisać
+        console.log(Number.MIN_VALUE);  //  minimalna wartość którą możemy zapisać
+
+        console.log(Number.parseInt("10") + 2); // 12
+        console.log(Number.parseFloat("10.123123") + 2); // 12.123123
+        console.log(Number.isInteger(123)); //  true
+        console.log(Number.isInteger(123.122)); //  false       // jeżeli jest liczba zmienno przecinkowa metoda .isInteger wyświetla false natomiast jeśli liczba jest całkowita daje true
+
+        let a1 = -1 / 0; // -infinity
+        let a = 1 / 0; // infinity
+        console.log(a);
+
+
+        console.log(Number.isFinite(a)); // false       // jeśli liczba jest nieskończona to .isFinite() wyświetla false natomiast jeśli nie ma nieskończoności daje true
+        console.log(Number.isFinite(123)); // true
+        console.log(Number.isFinite(NaN)); // false
+        console.log(Number.isFinite(undefined)); // false
+        console.log(Number.isFinite("")); // false
+
+
+        console.log(Math.round(123.456)); // zaokrąglenie do najbliżeszj liczby całkowitej 123
+        console.log(Math.round(123.50)); // zaokrąglenie do najbliżeszj liczby całkowitej 124
+        console.log(Math.ceil(123.14)); // zaokrąglenie do wyższej liczby całkowitej 124
+        console.log(Math.floor(123.99)); // zaokrąglenie do niższej liczby całkowitej 123
+        console.log(Math.random()); // 0 <= x < 1
+        console.log(Math.random() * 5); // 0 <= x < 5
+        console.log(Math.sqrt(16)); //  4 metoda pierwiastka kwadratowego
+        console.log(Math.trunc(12345.1214123)); //  12345 ==> uzyskujemy tylko liczby całkowite
+        console.log(123123.12123.toFixed(2)); // 123123.12
+        
+        
+
+
+
+        
+        
+        
+        
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Jeżeli dodamy setter do obiektu dla danej zmiennej to zostanie wywowałany automatycznie przy zapisie wartości do tej zmiennej. Podobnie będzie z getterem przy pobraniu wartości
+        */
+
+        const user = {
+            _name: null,
+
+            set name(newValue) {
+                // setter
+                if (newValue.length > 2) {
+                    this._name = newValue;
+                } else {
+                    console.log("Name to short");
+                }
+            },
+            // getter 
+
+            get name() {
+                return this._name;
+            }
+        };
+
+        user.name = "Łuk";
+        console.log(user.name);
+
+
+        const truck = {
+            _brand: null,
+            _model: null,
+            _topSpeed: null,
+            
+            set topSpeed(newValueSpeed) {
+                if (newValueSpeed > 0) {
+                    this._topSpeed = newValueSpeed;
+                } else {
+                    console.log("Speed to looow");
+                }
+            },
+            set brand(newValuebrand) {
+                this._brand = newValuebrand
+            },
+            set model(newValueModel) {
+                this._model = newValueModel
+            },
+
+            get topSpeed() {
+                return this._topSpeed
+            },
+            get brand() {
+                return this.brand
+            },
+            get model() {
+                return this.model
+            },
+        };
+
+        truck.brand = "Renault";
+        truck.model = "Ivop";
+        truck.topSpeed = 120;
+        console.log(truck);
+        
+
+
+
+
+
+        
+        
+
+    </script>
+</head>
+<body>
+</body>
+</html>
