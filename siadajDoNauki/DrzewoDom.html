@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Obiekt document dostępny w przeglądarce i reprezentuje sparsowany dokument html tzw. Document Object Model, czyli DOM
+        */
+
+        /*
+            document.querySelectorAll() - pobieranie wielu elementów html ze względu na selektor css document.querySelector() - pobranie jednego elementu ze względu na selektor css
+        */
+
+
+        // let liItem = document.querySelector("li.menuItem");
+        // // let liItem = document.getElementsByClassName("menuItem");
+        // console.log(liItem);
+        // liItem.style.fontWeight = "bold";
+        
+
+
+
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li class="menuItem">link #1</li>
+        <li class="menu-item-curret">link 2</li> 
+        <li class="menuItem">link 3</li>
+    </ul>
+    <input type="number" >
+    <div id="content"></div>
+
+    <script>
+        let liItem = document.querySelector("li.menuItem");
+        // let liItem = document.getElementsByClassName("menuItem");
+        console.log(liItem);
+        liItem.style.fontWeight = "bold";
+
+        let liList = document.querySelectorAll("li.menuItem");
+
+        for (let i = 0; i < liList.length; i++) {
+            const element = liList[i];
+            // element.style.color = "red"
+        };
+
+
+        /*
+            document.getElementsByTagName() - pobiera listę elementów ze względu na nazwę taga html
+        */
+
+        // document.getElementsByTagName("li").style.color = "green";
+
+        liList = document.getElementsByTagName("li");
+        for (let i = 0; i < liList.length; i++) {
+            const element = liList[i];
+            element.style.color = "green"
+        }
+
+        /*
+            docment.createElement() - tworzy nowy element html, który można dodać na stronie
+        */
+
+        let p = document.createElement("p");
+        p.innerHTML = "Nowy element";
+
+        let div = document.getElementById("content");
+        div.appendChild(p)
+
+        /*
+            Zdarzenie click myszy podpinamy na obiekcie document
+        */
+
+        let p1 = document.createElement("p");
+        p1.innerHTML = "Kliknij mnie";
+
+        document.getElementsByTagName("body")[0].appendChild(p1);
+
+         document.addEventListener("click", function(event){
+            console.log(event);
+            console.log(event.clientX, event.clientY);
+         });
+
+         p1.addEventListener("click", (event) => {
+            let num = document.querySelector("input").value;
+            console.log(num);
+         });
+
+
+         let input = document.querySelector("input");
+         input.addEventListener("input", (event) => {
+            console.log(event.target.value);
+         });
+
+
+    </script>
+</body>
+</html>
