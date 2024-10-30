@@ -50,11 +50,67 @@
         const objEntries = Object.entries(obj);
         console.log(objEntries);
 
-        for (const entries of objEntries) {
-            console.log(entries);
+        for (const [key, value] of objEntries) {
+            console.log(key, value);
         }
 
+        /*
+            Serializacja to zapisanie obiektu oraz jego właściwości w takim stanie aby taki obiekt być później łatwo odtworzony.
+        */
+
+        let source = {
+            str: "hello",
+            a: 24,
+            data: {
+                b: 111,
+                arr: [1,2,3,4,5,6]
+            },
+            date: new Date()
+        }
+
+        let strData = JSON.stringify(source);
+        console.log(strData); 
+        // {"str":"hello","a":24,"data":{"b":111,"arr":[1,2,3,4,5,6]},"date":"2024-10-30T17:17:10.529Z"}
+
+        let otherObj = JSON.parse(strData);
+        console.log(otherObj); 
+        // {str: 'hello', a: 24, data: {…}, date: '2024-10-30T17:22:08.462Z'}
+
+        otherObj.date = new Date(otherObj.date);
+        console.log(otherObj);
+        console.log(otherObj.date instanceof Date); // true
+
+        console.log(source.data === otherObj.date); // false
+
+        obj = {
+            a: 10,
+            b: 12
+        }
+
+        obj.c = 14;
+
+        Object.defineProperty(obj, "prop", {
+            value: "test",
+            writable: true,
+            configurable: false,
+            enumerable: true
+        });
         
+        console.log(obj);
+        delete obj.prop;
+        console.log(obj);
+        
+
+
+
+
+        
+        
+        
+
+        
+
+
         
         
         

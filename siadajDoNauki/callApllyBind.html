@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        const employee = {
+            name: "Wiki",
+            printInfo: function(surname, city) {
+                console.log(this.name, surname, city);
+            }
+        }
+
+        employee.printInfo("Bień", "Wawa"); // Wiki Bień Wawa
+
+
+        const user = {
+            name: "Adam"
+        };
+
+        employee.printInfo.call(user, "Puzio", "Kraków");
+
+        employee.printInfo.apply(user, ["kwasnik", "gdynia"]);
+
+        let userInfo = employee.printInfo.bind(user, "Pawlak","Szczecin");
+        userInfo(); // Adam Pawlak Szczecin
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
