@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const url = "https://api.chucknorris.io/jokes/random";
+
+        // let submit = addEventListener("click", joke);
+      
+        // function joke() {
+        //     let div = document.getElementById("container");
+
+        //   setInterval(function () {
+        //          getJoke(function (data) {
+        //             console.log(data);
+        //          div.innerHTML = data.value;
+        //          })
+        //  }, 5000)
+        // }
+
+        // function  getJoke(callback) {
+
+        //     fetch(url)
+        //         .then( response => response.json() )
+        //         .then( callback );
+        // }
+
+
+        // let submit = addEventListener("click", function(){
+        //     let div = document.getElementById("container");
+        //     setTimeout(function () {
+        //          getJoke(function (data) {
+        //             console.log(data);
+        //          div.innerHTML = data.value;
+        //          })
+        //  }, 0)
+        // }
+        // )
+
+
+        // function getJoke(callback) {
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(callback);
+        // }
+
+
+
+        let submit = addEventListener("click", function(){
+            let div = document.getElementById("container");
+            
+                 getJoke(function (data) {
+                    console.log(data);
+                 div.innerHTML = data.value;
+                 }
+                )
+            }
+        );
+        
+
+
+        function getJoke(callback) {
+            fetch(url)
+            .then(response => response.json())
+            .then(callback);
+        }
+    
+    </script>
+</head>
+<body>
+
+    <div id="container">
+
+    </div>
+
+    <button>Get Joke</button>
+
+</body>
+</html>
